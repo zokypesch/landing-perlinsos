@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perlinsos Style Guidance - Complete CSS Component Library</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Desktop-specific styles for the guidance page */
+        body {
+            background: #f5f5f5;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .desktop-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .desktop-header {
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .desktop-content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .section h2 {
+            color: var(--red-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--red-primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: var(--gray-800);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .component-demo {
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .color-swatch {
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .mobile-demo {
+            max-width: 414px;
+            margin: 0 auto;
+            border: 2px solid var(--gray-300);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .flex-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .code-block {
+            background: var(--gray-900);
+            color: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--blue-primary);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .copy-btn:hover {
+            background: var(--blue-dark);
+        }
+        
+        .copy-btn.copied {
+            background: var(--green-success);
+        }
+        
+        .component-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .component-preview {
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .component-code {
+            background: var(--gray-900);
+            color: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--gray-200);
+            margin-bottom: 1rem;
+        }
+        
+        .tab {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: var(--transition-fast);
+        }
+        
+        .tab.active {
+            color: var(--red-primary);
+            border-bottom: 2px solid var(--red-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop-container">
+        <!-- Desktop Header -->
+        <div class="desktop-header">
+            <h1>Perlinsos Style Guidance</h1>
+            <p>Complete CSS Component Library & Design System</p>
+            <p>Indonesian Independence Day Theme - Red, Gold & White</p>
+        </div>
+
+        <div class="desktop-content">
+            <!-- Color Palette Section -->
+            <section class="section">
+                <h2><i class="fas fa-palette"></i> Color Palette</h2>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: var(--red-primary)">
+                        Red Primary<br>#DC2626
+                    </div>
+                    <div class="color-swatch" style="background: var(--red-dark)">
+                        Red Dark<br>#B91C1C
+                    </div>
+                    <div class="color-swatch" style="background: var(--gold-accent)">
+                        Gold Accent<br>#D97706
+                    </div>
+                    <div class="color-swatch" style="background: var(--white-primary); color: var(--gray-900)">
+                        White Primary<br>#FFFFFF
+                    </div>
+                    <div class="color-swatch" style="background: var(--blue-primary)">
+                        Blue Primary<br>#1E40AF
+                    </div>
+                    <div class="color-swatch" style="background: var(--green-success)">
+                        Green Success<br>#059669
+                    </div>
+                    <div class="color-swatch" style="background: var(--gray-800)">
+                        Gray 800<br>#1F2937
+                    </div>
+                    <div class="color-swatch" style="background: var(--gray-600)">
+                        Gray 600<br>#4B5563
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons Section -->
+            <section class="section">
+                <h2><i class="fas fa-mouse-pointer"></i> Buttons</h2>
+                
+                <!-- Primary Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Primary Button</h3>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-check"></i>
+                            Primary Button
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="btn btn-primary"&gt;
+    &lt;i class="fas fa-check"&gt;&lt;/i&gt;
+    Primary Button
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Success Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Success Button</h3>
+                        <button class="btn btn-success">
+                            <i class="fas fa-save"></i>
+                            Success Button
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="btn btn-success"&gt;
+    &lt;i class="fas fa-save"&gt;&lt;/i&gt;
+    Success Button
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Secondary Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Secondary Button</h3>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-times"></i>
+                            Secondary Button
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="btn btn-secondary"&gt;
+    &lt;i class="fas fa-times"&gt;&lt;/i&gt;
+    Secondary Button
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Outline Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Outline Button</h3>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-edit"></i>
+                            Outline Button
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="btn btn-outline"&gt;
+    &lt;i class="fas fa-edit"&gt;&lt;/i&gt;
+    Outline Button
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Full Width Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Full Width Button</h3>
+                        <button class="btn btn-primary btn-full">
+                            <i class="fas fa-arrow-right"></i>
+                            Full Width Button
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="btn btn-primary btn-full"&gt;
+    &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;
+    Full Width Button
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Icon Button -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Icon Button</h3>
+                        <button class="icon-btn">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;button class="icon-btn"&gt;
+    &lt;i class="fas fa-bell"&gt;&lt;/i&gt;
+&lt;/button&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards Section -->
+            <section class="section">
+                <h2><i class="fas fa-clone"></i> Cards</h2>
+                
+                <!-- Basic Card -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Basic Card</h3>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Card Title</h4>
+                                <p>This is a basic card with content. Cards are used to group related information together.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="card"&gt;
+    &lt;div class="card-content"&gt;
+        &lt;h4&gt;Card Title&lt;/h4&gt;
+        &lt;p&gt;This is a basic card with content. Cards are used to group related information together.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Card with Header -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Card with Header</h3>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Card Header</h4>
+                            </div>
+                            <div class="card-content">
+                                <p>Card content goes here. Headers help organize information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="card"&gt;
+    &lt;div class="card-header"&gt;
+        &lt;h4&gt;Card Header&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;p&gt;Card content goes here. Headers help organize information.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Card with Footer -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Card with Footer</h3>
+                        <div class="card">
+                            <div class="card-content">
+                                <p>Card content with footer actions.</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Action</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="card"&gt;
+    &lt;div class="card-content"&gt;
+        &lt;p&gt;Card content with footer actions.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;button class="btn btn-primary"&gt;Action&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forms Section -->
+            <section class="section">
+                <h2><i class="fas fa-edit"></i> Form Elements</h2>
+                
+                <!-- Text Input -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Text Input</h3>
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-input" placeholder="Masukkan nama lengkap">
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;Nama Lengkap&lt;/label&gt;
+    &lt;input type="text" class="form-input" placeholder="Masukkan nama lengkap"&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Select Dropdown -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Select Dropdown</h3>
+                        <div class="form-group">
+                            <label class="form-label">Provinsi</label>
+                            <select class="form-input form-select">
+                                <option>Pilih Provinsi</option>
+                                <option>DKI Jakarta</option>
+                                <option>Jawa Barat</option>
+                                <option>Jawa Tengah</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;Provinsi&lt;/label&gt;
+    &lt;select class="form-input form-select"&gt;
+        &lt;option&gt;Pilih Provinsi&lt;/option&gt;
+        &lt;option&gt;DKI Jakarta&lt;/option&gt;
+        &lt;option&gt;Jawa Barat&lt;/option&gt;
+        &lt;option&gt;Jawa Tengah&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- KTP Data Input -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Data Input</h3>
+                        <div class="form-group">
+                            <label class="form-label">NIK</label>
+                            <input type="text" class="ktp-data-input" value="3275051234567890">
+                            <div class="ktp-confidence-badge ktp-high">99.1%</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;NIK&lt;/label&gt;
+    &lt;input type="text" class="ktp-data-input" value="3275051234567890"&gt;
+    &lt;div class="ktp-confidence-badge ktp-high"&gt;99.1%&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- KTP Data Textarea -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Data Textarea</h3>
+                        <div class="form-group">
+                            <label class="form-label">Alamat</label>
+                            <textarea class="ktp-data-textarea" rows="3">JL. Merdeka Raya No. 123</textarea>
+                            <div class="ktp-confidence-badge ktp-medium">95.2%</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;Alamat&lt;/label&gt;
+    &lt;textarea class="ktp-data-textarea" rows="3"&gt;JL. Merdeka Raya No. 123&lt;/textarea&gt;
+    &lt;div class="ktp-confidence-badge ktp-medium"&gt;95.2%&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Program Cards Section -->
+            <section class="section">
+                <h2><i class="fas fa-gift"></i> Program Cards</h2>
+                
+                <!-- Program Card - Active -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Program Card - Active</h3>
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="program-info">
+                                <h3>Program Keluarga Harapan</h3>
+                                <p>Bantuan sosial untuk keluarga kurang mampu</p>
+                                <div class="program-amount">Rp 500.000/bulan</div>
+                            </div>
+                            <div class="program-status status-active">Aktif</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="program-card"&gt;
+    &lt;div class="program-icon"&gt;
+        &lt;i class="fas fa-hand-holding-heart"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="program-info"&gt;
+        &lt;h3&gt;Program Keluarga Harapan&lt;/h3&gt;
+        &lt;p&gt;Bantuan sosial untuk keluarga kurang mampu&lt;/p&gt;
+        &lt;div class="program-amount"&gt;Rp 500.000/bulan&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="program-status status-active"&gt;Aktif&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Program Card - Process -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Program Card - Process</h3>
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="program-info">
+                                <h3>Kartu Indonesia Pintar</h3>
+                                <p>Bantuan pendidikan untuk siswa</p>
+                                <div class="program-amount">Rp 450.000/semester</div>
+                            </div>
+                            <div class="program-status status-process">Proses</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="program-card"&gt;
+    &lt;div class="program-icon"&gt;
+        &lt;i class="fas fa-graduation-cap"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="program-info"&gt;
+        &lt;h3&gt;Kartu Indonesia Pintar&lt;/h3&gt;
+        &lt;p&gt;Bantuan pendidikan untuk siswa&lt;/p&gt;
+        &lt;div class="program-amount"&gt;Rp 450.000/semester&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="program-status status-process"&gt;Proses&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Program Card - Inactive -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Program Card - Inactive</h3>
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="program-info">
+                                <h3>Kartu Indonesia Sehat</h3>
+                                <p>Bantuan kesehatan untuk masyarakat</p>
+                                <div class="program-amount">Gratis</div>
+                            </div>
+                            <div class="program-status status-inactive">Tidak Aktif</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="program-card"&gt;
+    &lt;div class="program-icon"&gt;
+        &lt;i class="fas fa-heartbeat"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="program-info"&gt;
+        &lt;h3&gt;Kartu Indonesia Sehat&lt;/h3&gt;
+        &lt;p&gt;Bantuan kesehatan untuk masyarakat&lt;/p&gt;
+        &lt;div class="program-amount"&gt;Gratis&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="program-status status-inactive"&gt;Tidak Aktif&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alerts Section -->
+            <section class="section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Alerts</h2>
+                
+                <!-- Info Alert -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Info Alert</h3>
+                        <div class="alert alert-info">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Informasi</h4>
+                                <p>Ini adalah alert informasi untuk memberitahu user tentang sesuatu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="alert alert-info"&gt;
+    &lt;div class="alert-icon"&gt;
+        &lt;i class="fas fa-info-circle"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="alert-content"&gt;
+        &lt;h4&gt;Informasi&lt;/h4&gt;
+        &lt;p&gt;Ini adalah alert informasi untuk memberitahu user tentang sesuatu.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Success Alert -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Success Alert</h3>
+                        <div class="alert alert-success">
+                            <div class="alert-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Berhasil</h4>
+                                <p>Proses telah berhasil dilakukan dengan sempurna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="alert alert-success"&gt;
+    &lt;div class="alert-icon"&gt;
+        &lt;i class="fas fa-check-circle"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="alert-content"&gt;
+        &lt;h4&gt;Berhasil&lt;/h4&gt;
+        &lt;p&gt;Proses telah berhasil dilakukan dengan sempurna.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Warning Alert -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Warning Alert</h3>
+                        <div class="alert alert-warning">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Peringatan</h4>
+                                <p>Harap perhatikan informasi penting ini sebelum melanjutkan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="alert alert-warning"&gt;
+    &lt;div class="alert-icon"&gt;
+        &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="alert-content"&gt;
+        &lt;h4&gt;Peringatan&lt;/h4&gt;
+        &lt;p&gt;Harap perhatikan informasi penting ini sebelum melanjutkan.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Grid Section -->
+            <section class="section">
+                <h2><i class="fas fa-th"></i> Menu Grid</h2>
+                
+                <!-- Menu Grid Layout -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Menu Grid Layout</h3>
+                        <div class="menu-grid">
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="menu-text">Profile</div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <div class="menu-text">Settings</div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="menu-text">Bantuan</div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="menu-text">Report</div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="menu-text">Notifikasi</div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <div class="menu-icon">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </div>
+                                <div class="menu-text">Logout</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="menu-grid"&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-user"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Profile&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-cog"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Settings&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-heart"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Bantuan&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-chart-bar"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Report&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-bell"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Notifikasi&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="menu-item"&gt;
+        &lt;div class="menu-icon"&gt;
+            &lt;i class="fas fa-sign-out-alt"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="menu-text"&gt;Logout&lt;/div&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal Section -->
+            <section class="section">
+                <h2><i class="fas fa-window-maximize"></i> Modal</h2>
+                
+                <!-- Modal Example -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Modal Example</h3>
+                        <button class="btn btn-primary" onclick="showModal()">Show Modal</button>
+                        <div id="demoModal" class="modal-overlay" style="display: none;">
+                            <div class="modal">
+                                <div class="modal-header">
+                                    <h3>Modal Title</h3>
+                                </div>
+                                <div class="modal-content">
+                                    <p>This is a modal dialog. It's used to display important information or forms that require user attention.</p>
+                                </div>
+                                <div class="modal-actions">
+                                    <button class="btn btn-primary" onclick="hideModal()">Confirm</button>
+                                    <button class="btn btn-secondary" onclick="hideModal()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="modal-overlay"&gt;
+    &lt;div class="modal"&gt;
+        &lt;div class="modal-header"&gt;
+            &lt;h3&gt;Modal Title&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;p&gt;This is a modal dialog. It's used to display important information or forms that require user attention.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-actions"&gt;
+            &lt;button class="btn btn-primary"&gt;Confirm&lt;/button&gt;
+            &lt;button class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Biometric Section -->
+            <section class="section">
+                <h2><i class="fas fa-fingerprint"></i> Biometric Components</h2>
+                
+                <!-- Biometric Container -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Biometric Container</h3>
+                        <div class="biometric-container">
+                            <div class="fingerprint-icon">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <div class="biometric-text">
+                                Letakkan jari Anda pada sensor untuk verifikasi
+                            </div>
+                            <button class="btn btn-primary">Mulai Verifikasi</button>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="biometric-container"&gt;
+    &lt;div class="fingerprint-icon"&gt;
+        &lt;i class="fas fa-fingerprint"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="biometric-text"&gt;
+        Letakkan jari Anda pada sensor untuk verifikasi
+    &lt;/div&gt;
+    &lt;button class="btn btn-primary"&gt;Mulai Verifikasi&lt;/button&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Checklist -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Checklist</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="check-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="checklist-text">
+                                    <strong>Langkah 1</strong><br>
+                                    Verifikasi identitas berhasil
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="checklist-text">
+                                    <strong>Langkah 2</strong><br>
+                                    Biometric matching complete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="checklist"&gt;
+    &lt;div class="checklist-item"&gt;
+        &lt;div class="check-icon"&gt;
+            &lt;i class="fas fa-check"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="checklist-text"&gt;
+            &lt;strong&gt;Langkah 1&lt;/strong&gt;&lt;br&gt;
+            Verifikasi identitas berhasil
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="checklist-item"&gt;
+        &lt;div class="check-icon"&gt;
+            &lt;i class="fas fa-check"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="checklist-text"&gt;
+            &lt;strong&gt;Langkah 2&lt;/strong&gt;&lt;br&gt;
+            Biometric matching complete
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KTP Scanning Section -->
+            <section class="section">
+                <h2><i class="fas fa-id-card"></i> KTP Scanning Components</h2>
+                
+                <!-- KTP Scan Header -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Scan Header</h3>
+                        <div class="ktp-scan-header">
+                            <div class="ktp-scan-header-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h1 class="ktp-scan-title">Pemindaian KTP</h1>
+                            <p class="ktp-scan-description">Pindai KTP untuk mengekstrak data secara otomatis</p>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-scan-header"&gt;
+    &lt;div class="ktp-scan-header-icon"&gt;
+        &lt;i class="fas fa-id-card"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;h1 class="ktp-scan-title"&gt;Pemindaian KTP&lt;/h1&gt;
+    &lt;p class="ktp-scan-description"&gt;Pindai KTP untuk mengekstrak data secara otomatis&lt;/p&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- KTP Camera Frame -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Camera Frame</h3>
+                        <div class="ktp-camera-container">
+                            <div class="ktp-camera-frame">
+                                <div class="ktp-camera-placeholder">
+                                    <i class="fas fa-camera" style="font-size: 48px; color: var(--gray-400);"></i>
+                                    <p>Camera Preview</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-camera-container"&gt;
+    &lt;div class="ktp-camera-frame"&gt;
+        &lt;div class="ktp-camera-placeholder"&gt;
+            &lt;i class="fas fa-camera" style="font-size: 48px; color: var(--gray-400);"&gt;&lt;/i&gt;
+            &lt;p&gt;Camera Preview&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Quality Bars -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Quality Bars</h3>
+                        <div class="ktp-quality-bars">
+                            <div class="ktp-quality-bar active"></div>
+                            <div class="ktp-quality-bar active"></div>
+                            <div class="ktp-quality-bar active"></div>
+                            <div class="ktp-quality-bar medium"></div>
+                            <div class="ktp-quality-bar low"></div>
+                        </div>
+                        <span style="margin-left: 1rem;">Kualitas: Baik</span>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-quality-bars"&gt;
+    &lt;div class="ktp-quality-bar active"&gt;&lt;/div&gt;
+    &lt;div class="ktp-quality-bar active"&gt;&lt;/div&gt;
+    &lt;div class="ktp-quality-bar active"&gt;&lt;/div&gt;
+    &lt;div class="ktp-quality-bar medium"&gt;&lt;/div&gt;
+    &lt;div class="ktp-quality-bar low"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Confidence Badges -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Confidence Badges</h3>
+                        <div class="flex-demo">
+                            <div class="ktp-confidence-badge ktp-high">99.1%</div>
+                            <div class="ktp-confidence-badge ktp-medium">85.5%</div>
+                            <div class="ktp-confidence-badge ktp-low">65.2%</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-confidence-badge ktp-high"&gt;99.1%&lt;/div&gt;
+&lt;div class="ktp-confidence-badge ktp-medium"&gt;85.5%&lt;/div&gt;
+&lt;div class="ktp-confidence-badge ktp-low"&gt;65.2%&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KTP Data Section -->
+            <section class="section">
+                <h2><i class="fas fa-database"></i> KTP Data Components</h2>
+                
+                <!-- KTP Data Grid - Single Column -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Data Grid - Single Column</h3>
+                        <div class="ktp-data-section">
+                            <div class="ktp-data-grid single-column">
+                                <div class="ktp-data-item">
+                                    <label>NIK</label>
+                                    <input type="text" class="ktp-data-input" value="3275051234567890">
+                                    <div class="ktp-confidence-badge ktp-high">99.1%</div>
+                                </div>
+                                <div class="ktp-data-item">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" class="ktp-data-input" value="BUDI SANTOSO">
+                                    <div class="ktp-confidence-badge ktp-high">98.7%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-data-section"&gt;
+    &lt;div class="ktp-data-grid single-column"&gt;
+        &lt;div class="ktp-data-item"&gt;
+            &lt;label&gt;NIK&lt;/label&gt;
+            &lt;input type="text" class="ktp-data-input" value="3275051234567890"&gt;
+            &lt;div class="ktp-confidence-badge ktp-high"&gt;99.1%&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ktp-data-item"&gt;
+            &lt;label&gt;Nama Lengkap&lt;/label&gt;
+            &lt;input type="text" class="ktp-data-input" value="BUDI SANTOSO"&gt;
+            &lt;div class="ktp-confidence-badge ktp-high"&gt;98.7%&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- KTP Data Grid - Two Columns -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Data Grid - Two Columns</h3>
+                        <div class="ktp-data-section">
+                            <div class="ktp-data-grid">
+                                <div class="ktp-data-item">
+                                    <label>Kelurahan</label>
+                                    <input type="text" class="ktp-data-input" value="MENTENG">
+                                    <div class="ktp-confidence-badge ktp-high">98.1%</div>
+                                </div>
+                                <div class="ktp-data-item">
+                                    <label>Kecamatan</label>
+                                    <input type="text" class="ktp-data-input" value="MENTENG">
+                                    <div class="ktp-confidence-badge ktp-high">98.9%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-data-section"&gt;
+    &lt;div class="ktp-data-grid"&gt;
+        &lt;div class="ktp-data-item"&gt;
+            &lt;label&gt;Kelurahan&lt;/label&gt;
+            &lt;input type="text" class="ktp-data-input" value="MENTENG"&gt;
+            &lt;div class="ktp-confidence-badge ktp-high"&gt;98.1%&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ktp-data-item"&gt;
+            &lt;label&gt;Kecamatan&lt;/label&gt;
+            &lt;input type="text" class="ktp-data-input" value="MENTENG"&gt;
+            &lt;div class="ktp-confidence-badge ktp-high"&gt;98.9%&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KTP Issues Section -->
+            <section class="section">
+                <h2><i class="fas fa-exclamation-circle"></i> KTP Issue Components</h2>
+                
+                <!-- KTP Issue List -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Issue List</h3>
+                        <div class="ktp-issue-list">
+                            <div class="ktp-issue-item">
+                                <div class="ktp-issue-icon">
+                                    <i class="fas fa-sun" style="color: var(--gold-accent);"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Pencahayaan Kurang</div>
+                                    <div style="font-size: 13px; color: var(--text-secondary);">Gambar terlalu gelap atau ada bayangan pada KTP</div>
+                                </div>
+                            </div>
+                            <div class="ktp-issue-item">
+                                <div class="ktp-issue-icon">
+                                    <i class="fas fa-eye" style="color: var(--blue-primary);"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Gambar Buram</div>
+                                    <div style="font-size: 13px; color: var(--text-secondary);">KTP tidak fokus atau tangan bergetar saat pengambilan</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-issue-list"&gt;
+    &lt;div class="ktp-issue-item"&gt;
+        &lt;div class="ktp-issue-icon"&gt;
+            &lt;i class="fas fa-sun" style="color: var(--gold-accent);"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;div style="font-weight: 600; margin-bottom: var(--spacing-xs);"&gt;Pencahayaan Kurang&lt;/div&gt;
+            &lt;div style="font-size: 13px; color: var(--text-secondary);"&gt;Gambar terlalu gelap atau ada bayangan pada KTP&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="ktp-issue-item"&gt;
+        &lt;div class="ktp-issue-icon"&gt;
+            &lt;i class="fas fa-eye" style="color: var(--blue-primary);"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;div style="font-weight: 600; margin-bottom: var(--spacing-xs);"&gt;Gambar Buram&lt;/div&gt;
+            &lt;div style="font-size: 13px; color: var(--text-secondary);"&gt;KTP tidak fokus atau tangan bergetar saat pengambilan&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quality Bars Section -->
+            <section class="section">
+                <h2><i class="fas fa-chart-bar"></i> Quality Analysis</h2>
+                
+                <!-- KTP Quality Bars -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Quality Bars</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                            <div class="ktp-quality-metric">
+                                <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Kecerahan</div>
+                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                    <div class="ktp-quality-bar-container">
+                                        <div class="ktp-quality-bar-fill" style="width: 85%; background: var(--green-success);"></div>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--green-success); font-weight: 600;">85%</span>
+                                </div>
+                            </div>
+                            <div class="ktp-quality-metric">
+                                <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Kontras</div>
+                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                    <div class="ktp-quality-bar-container">
+                                        <div class="ktp-quality-bar-fill" style="width: 65%; background: var(--gold-accent);"></div>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--gold-accent); font-weight: 600;">65%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-quality-metric"&gt;
+    &lt;div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);"&gt;Kecerahan&lt;/div&gt;
+    &lt;div style="display: flex; align-items: center; gap: var(--spacing-sm);"&gt;
+        &lt;div class="ktp-quality-bar-container"&gt;
+            &lt;div class="ktp-quality-bar-fill" style="width: 85%; background: var(--green-success);"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span style="font-size: 12px; color: var(--green-success); font-weight: 600;"&gt;85%&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="section">
+                <h2><i class="fas fa-tasks"></i> Progress Indicators</h2>
+                
+                <!-- Progress Steps -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Progress Steps</h3>
+                        <div class="progress-steps">
+                            <div class="progress-step active"></div>
+                            <div class="progress-step active"></div>
+                            <div class="progress-step"></div>
+                            <div class="progress-step"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 1rem;">Step 2 of 4</p>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="progress-steps"&gt;
+    &lt;div class="progress-step active"&gt;&lt;/div&gt;
+    &lt;div class="progress-step active"&gt;&lt;/div&gt;
+    &lt;div class="progress-step"&gt;&lt;/div&gt;
+    &lt;div class="progress-step"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- KTP Processing Steps -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>KTP Processing Steps</h3>
+                        <div class="ktp-processing-step">
+                            <span style="color: var(--green-success);">✓ Mendeteksi KTP</span>
+                        </div>
+                        <div class="ktp-processing-step">
+                            <span style="color: var(--gold-accent);">⏳ Mengekstrak teks</span>
+                        </div>
+                        <div class="ktp-processing-step">
+                            <span style="color: var(--gray-500);">⌛ Memvalidasi data</span>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="ktp-processing-step"&gt;
+    &lt;span style="color: var(--green-success);"&gt;✓ Mendeteksi KTP&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="ktp-processing-step"&gt;
+    &lt;span style="color: var(--gold-accent);"&gt;⏳ Mengekstrak teks&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="ktp-processing-step"&gt;
+    &lt;span style="color: var(--gray-500);"&gt;⌛ Memvalidasi data&lt;/span&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Utility Classes Section -->
+            <section class="section">
+                <h2><i class="fas fa-tools"></i> Utility Classes</h2>
+                <div class="component-grid">
+                    <div class="component-demo">
+                        <h3>Text Alignment</h3>
+                        <div class="text-left">Left aligned text</div>
+                        <div class="text-center">Center aligned text</div>
+                        <div class="text-right">Right aligned text</div>
+                    </div>
+                    <div class="component-demo">
+                        <h3>Margins</h3>
+                        <div class="mb-1">Margin bottom 1</div>
+                        <div class="mb-2">Margin bottom 2</div>
+                        <div class="mb-3">Margin bottom 3</div>
+                        <div class="mb-4">Margin bottom 4</div>
+                    </div>
+                    <div class="component-demo">
+                        <h3>Visibility</h3>
+                        <div class="visible">Visible element</div>
+                        <div class="hidden">Hidden element</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Animations Section -->
+            <section class="section">
+                <h2><i class="fas fa-magic"></i> Animations</h2>
+                <div class="component-grid">
+                    <div class="component-demo">
+                        <h3>Success Pulse</h3>
+                        <div style="width: 80px; height: 80px; margin: 0 auto; background: var(--green-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; animation: ktp-success-pulse 2s ease-in-out infinite;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="component-demo">
+                        <h3>Error Shake</h3>
+                        <div style="width: 80px; height: 80px; margin: 0 auto; background: var(--red-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; animation: ktp-error-shake 0.5s ease-in-out;">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="component-demo">
+                        <h3>Loading Spinner</h3>
+                        <div style="width: 40px; height: 40px; margin: 0 auto; border: 4px solid var(--gray-200); border-top: 4px solid var(--blue-primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CSS Variables Section -->
+            <section class="section">
+                <h2><i class="fas fa-code"></i> CSS Variables</h2>
+                <div class="code-block">
+:root {
+    /* Colors */
+    --red-primary: #DC2626;
+    --red-dark: #B91C1C;
+    --gold-accent: #D97706;
+    --white-primary: #FFFFFF;
+    --blue-primary: #1E40AF;
+    --green-success: #059669;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    
+    /* Borders */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section class="section">
+                <h2><i class="fas fa-info-circle"></i> About This Style Guide</h2>
+                <p>This comprehensive style guide showcases all components available in the Perlinsos CSS framework. The design system is built around the Indonesian Independence Day theme using red, gold, and white colors.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Mobile-first responsive design</li>
+                    <li>Indonesian Independence Day color scheme</li>
+                    <li>Comprehensive component library</li>
+                    <li>KTP scanning specific components</li>
+                    <li>Form validation and biometric elements</li>
+                    <li>Consistent animation and interaction patterns</li>
+                </ul>
+                <p><strong>Usage:</strong> Include <code>perlinsos-styles.css</code> in your HTML and use the classes as demonstrated above.</p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.getElementById('demoModal').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
+
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(function() {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                button.textContent = 'Error';
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Add some interactivity to form elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.ktp-data-input, .ktp-data-textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.style.borderColor = 'var(--gold-accent)';
+                    this.style.backgroundColor = '#FEF3C7';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
