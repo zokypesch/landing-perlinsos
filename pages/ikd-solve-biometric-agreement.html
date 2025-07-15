@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Perlinsos - Biometric Confirmation</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content with overlay -->
+        <div style="background: rgba(0, 0, 0, 0.6); min-height: 100vh; display: flex; flex-direction: column;">
+            <!-- Header Info -->
+            <div style="padding: 20px; color: #9E9E9E;">
+                <h2 style="font-size: 18px; margin-bottom: 16px;">Portal Perlinsos</h2>
+                <p style="font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
+                    Portal Perlinsos akan meminta beberapa informasi dari IKD.
+                </p>
+                
+                <!-- Form Fields -->
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>NIK</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Nama</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Tempat lahir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Tanggal lahir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Alamat</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                <div class="modal" style="position: static; max-width: none; width: 100%;">
+                    <div class="modal-header">
+                        <h3>Konfirmasi Sidik Jari</h3>
+                    </div>
+                    <div class="modal-content">
+                        <p>Pindai sidik jari Anda untuk konfirmasi akses membagikan data dengan layanan Portal Perlinsos.</p>
+                        
+                        <!-- Fingerprint Icon -->
+                        <div class="biometric-container">
+                            <div class="fingerprint-icon" style="border-color: var(--primary-color); color: var(--primary-color);">
+                                👆
+                            </div>
+                            <p class="biometric-text">Sentuh pemindai sidik jari</p>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary btn-full">Gunakan PIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

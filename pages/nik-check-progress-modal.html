@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengecekan NIK - Progress</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Background overlay -->
+        <div style="background: rgba(0, 0, 0, 0.5); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+            
+            <!-- Progress Modal -->
+            <div class="modal" style="position: static; max-width: 320px; width: 100%;">
+                <div class="modal-content" style="text-align: center; padding: 32px 24px;">
+                    <h3 style="font-size: 18px; margin-bottom: 24px;">Melakukan Pengecekan NIK Penerima Manfaat</h3>
+                    
+                    <!-- Progress Icon -->
+                    <div style="margin-bottom: 24px;">
+                        <div style="width: 80px; height: 80px; margin: 0 auto; position: relative;">
+                            <!-- Hourglass icon -->
+                            <div style="width: 40px; height: 40px; margin: 0 auto; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--text-secondary);">
+                                ⏳
+                            </div>
+                            <!-- Clock overlay -->
+                            <div style="width: 32px; height: 32px; background: var(--primary-color); border-radius: 50%; position: absolute; bottom: 0; right: 0; display: flex; align-items: center; justify-content: center;">
+                                <span style="color: white; font-size: 16px;">🕐</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
+                        Waktu pengecekan akan berlangsung selama kurang lebih 10 detik. Mohon menunggu...
+                    </p>
+                    
+                    <!-- Timer -->
+                    <p style="font-size: 28px; font-weight: 600; color: var(--text-secondary); margin-bottom: 0;" id="timer">00:10</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        // Timer countdown
+        let timeLeft = 10;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.textContent = '00:00';
+                // Auto proceed to next screen
+                setTimeout(() => {
+                    window.location.href = 'agent-nik-check-success.html';
+                }, 500);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

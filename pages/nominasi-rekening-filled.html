@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Rekening - Data Lengkap</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pendaftaran Rekening</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Info Card -->
+            <div class="content-header">
+                <h2>Daftarkan Rekening Anda</h2>
+                <p>Kamu belum mendaftarkan rekening penerima manfaat</p>
+            </div>
+
+            <!-- Form with Filled Data -->
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Nama Bank</label>
+                    <input type="text" class="form-input" value="Bank Negara Indonesia (BNI)" readonly style="background: var(--surface); color: var(--text-primary);">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nomor Rekening</label>
+                    <input type="text" class="form-input" value="107089678899" style="background: white;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Pemilik Rekening</label>
+                    <input type="text" class="form-input" value="Budi Santoso Himalaya" style="background: white;">
+                </div>
+
+                <!-- Form Instructions -->
+                <div class="alert alert-info" style="margin-top: 24px;">
+                    <div class="alert-icon">ℹ️</div>
+                    <div class="alert-content">
+                        <h4>Petunjuk Pengisian</h4>
+                        <p>Pastikan nomor rekening dan nama pemilik rekening sesuai dengan data yang terdaftar di bank. Data akan diverifikasi secara otomatis.</p>
+                    </div>
+                </div>
+
+                <!-- Validation Info -->
+                <div class="card" style="margin-top: 16px;">
+                    <div class="card-content">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Data Yang Akan Diverifikasi:</h4>
+                        <ul style="font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin: 0; padding-left: 16px;">
+                            <li style="margin-bottom: 4px;">Kesesuaian nama dengan KTP</li>
+                            <li style="margin-bottom: 4px;">Status aktif rekening</li>
+                            <li style="margin-bottom: 4px;">Kemampuan menerima transfer</li>
+                            <li>Validitas nomor rekening</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn btn-primary btn-full">Cek Rekening</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

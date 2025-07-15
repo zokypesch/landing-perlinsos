@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekening Ditemukan</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pendaftaran Rekening</h1>
+        </div>
+
+        <!-- Background with overlay -->
+        <div style="background: rgba(0, 0, 0, 0.5); min-height: calc(100vh - 70px); position: relative;">
+            <!-- Info Card (background) -->
+            <div class="content-header" style="margin: 0; border-radius: 0;">
+                <h2>Daftarkan Rekening Anda</h2>
+                <p>Kamu belum mendaftarkan rekening penerima manfaat</p>
+            </div>
+
+            <!-- Success Modal -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% - 40px); max-width: 320px;">
+                <div class="modal" style="position: static;">
+                    <div class="modal-content" style="text-align: center; padding: 32px 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 24px;">Rekening Ditemukan</h3>
+                        
+                        <!-- Success Icon with Search -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto; position: relative;">
+                                <div style="width: 60px; height: 60px; border: 3px solid var(--primary-color); border-radius: 50%; position: absolute; top: 10px; left: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: var(--success-color); font-size: 24px;">✓</span>
+                                </div>
+                                <div style="width: 24px; height: 24px; background: var(--primary-color); border-radius: 50%; position: absolute; bottom: 0; right: 0; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 12px;">🔍</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5; margin-bottom: 16px;">
+                            Nomor Rekening Anda berhasil ditemukan (cocok dengan Nama Bank dan Nama Pemilik Rekening)
+                        </p>
+                        
+                        <!-- Timer -->
+                        <p style="font-size: 24px; font-weight: 600; color: var(--text-secondary); margin-bottom: 24px;" id="timer">00:27</p>
+                        
+                        <button class="btn btn-primary btn-full">Lanjutkan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Continue Button -->
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px;">
+                <button class="btn btn-primary btn-full" style="opacity: 0.3;">Cek Rekening</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        // Timer countdown
+        let timeLeft = 27;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                // Auto proceed
+                timerElement.textContent = '00:00';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

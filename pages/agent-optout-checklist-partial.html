@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Program Opt-Out - Agent (Partial Selection)</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pilih Program</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Progress Indicator -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">Langkah 2 dari 4</p>
+                <div class="progress-steps">
+                    <div class="progress-step active"></div>
+                    <div class="progress-step active"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 12px; margin-top: 8px;">Langkah 2: Pilih Program yang ingin dihentikan</p>
+            </div>
+
+            <!-- Info Alert -->
+            <div class="alert alert-info">
+                <div class="alert-icon">ℹ️</div>
+                <div class="alert-content">
+                    <p>Pilih program bantuan yang ingin Anda hentikan. Anda dapat memilih satu atau beberapa program sesuai dengan kondisi Anda.</p>
+                </div>
+            </div>
+
+            <!-- Program Selection -->
+            <div style="margin-top: 24px;">
+                <h3 style="font-size: 16px; margin-bottom: 16px;">Program Bantuan yang Sedang Diterima:</h3>
+
+                <!-- Program 1 - Selected -->
+                <div class="card" style="margin-bottom: 16px; border: 2px solid var(--primary-color); background: #F3F9FF; cursor: pointer;">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <input type="checkbox" checked style="margin-top: 4px; width: 20px; height: 20px;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <h4 style="font-size: 16px; font-weight: 600;">Bantuan Pangan Non-Tunai</h4>
+                                    <span style="background: #E8F5E8; color: var(--success-color); padding: 4px 8px; border-radius: 12px; font-size: 12px;">Terdaftar</span>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">
+                                    Bantuan sosial pangan dalam bentuk non-tunai untuk kebutuhan pangan
+                                </p>
+                                <p style="font-weight: 600; color: var(--success-color);">Rp. 200.000/bulan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2 - Selected -->
+                <div class="card" style="margin-bottom: 16px; border: 2px solid var(--primary-color); background: #F3F9FF; cursor: pointer;">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <input type="checkbox" checked style="margin-top: 4px; width: 20px; height: 20px;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <h4 style="font-size: 16px; font-weight: 600;">Bantuan PKH</h4>
+                                    <span style="background: #E8F5E8; color: var(--success-color); padding: 4px 8px; border-radius: 12px; font-size: 12px;">Terdaftar</span>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">
+                                    Bantuan tunai bersyarat untuk kesehatan, pendidikan, dan kesejahteraan sosial
+                                </p>
+                                <p style="font-weight: 600; color: var(--success-color);">Rp. 750.000/bulan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 3 - Not Selected -->
+                <div class="card" style="margin-bottom: 24px; border: 2px solid var(--border); cursor: pointer;">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <input type="checkbox" style="margin-top: 4px; width: 20px; height: 20px;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <h4 style="font-size: 16px; font-weight: 600;">Bantuan Program Indonesia Pintar</h4>
+                                    <span style="background: #E8F5E8; color: var(--success-color); padding: 4px 8px; border-radius: 12px; font-size: 12px;">Terdaftar</span>
+                                </div>
+                                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">
+                                    Bantuan bagi siswa yang memiliki keterbatasan ekonomi tapi berprestasi untuk melanjutkan studi
+                                </p>
+                                <p style="font-weight: 600; color: var(--success-color);">Rp. 450.000/bulan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reason Section -->
+            <div style="margin-bottom: 24px;">
+                <label class="form-label">Alasan Opt-Out dari Program yang dipilih</label>
+                <select class="form-input form-select">
+                    <option selected disabled>-- Pilih Alasan --</option>
+                    <option value="ekonomi-membaik">Kondisi ekonomi sudah membaik</option>
+                    <option value="tidak-memenuhi">Tidak memenuhi kriteria lagi</option>
+                    <option value="keluarga-lain">Memberikan kesempatan keluarga lain</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <!-- Action Button -->
+            <button class="btn btn-success btn-full">Lanjutkan</button>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

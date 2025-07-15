@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanjut Daftar PKH</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Verifikasi Data Pendaftaran PKH</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Progress Indicator -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">Langkah 1 dari 3</p>
+                <div class="progress-steps">
+                    <div class="progress-step active"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 12px; margin-top: 8px;">Langkah 1: Verifikasi Data Pemohon</p>
+            </div>
+
+            <!-- Info Alert -->
+            <div class="alert alert-info">
+                <div class="alert-icon">ℹ️</div>
+                <div class="alert-content">
+                    <p>Data berikut telah diambil dari sistem Digital ID dan DTKS / DTSEN. Silakan periksa kebenaran data Anda.</p>
+                </div>
+            </div>
+
+            <!-- Data Verification Form -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <label style="font-size: 14px; color: var(--text-secondary);">NIK</label>
+                                <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">3201*************01</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px; color: var(--success-color); font-size: 12px;">
+                                <span>✓</span>
+                                <span>Terverifikasi via Digital ID</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-size: 14px; color: var(--text-secondary);">Nama Lengkap</label>
+                        <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">Budi Santoso Himalaya</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-size: 14px; color: var(--text-secondary);">Alamat</label>
+                        <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">Jl. Mawar No. 123, RT 01/02</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-size: 14px; color: var(--text-secondary);">Kelurahan</label>
+                        <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">Kebon Jeruk</p>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <label style="font-size: 14px; color: var(--text-secondary);">Status DTKS / DTSEN</label>
+                                <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">Terdaftar</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px; color: var(--success-color); font-size: 12px;">
+                                <span>✓</span>
+                                <span>Valid</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <label style="font-size: 14px; color: var(--text-secondary);">No Rekening Terdaftar</label>
+                                <p style="font-size: 16px; font-weight: 500; margin: 4px 0;">107089678899</p>
+                                <p style="font-size: 14px; color: var(--text-secondary);">Budi Santoso Himalaya</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px; color: var(--success-color); font-size: 12px;">
+                                <span>✓</span>
+                                <span>Rekening Terdaftar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Change Option -->
+            <div style="margin: 24px 0;">
+                <button class="btn btn-outline btn-full">Ajukan Perubahan Data</button>
+            </div>
+
+            <!-- Action Button -->
+            <button class="btn btn-primary btn-full">Lanjutkan</button>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

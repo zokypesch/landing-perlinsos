@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Permohonan Opt-Out</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Konfirmasi Permohonan</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Progress Indicator -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">Langkah 3 dari 4</p>
+                <div class="progress-steps">
+                    <div class="progress-step active"></div>
+                    <div class="progress-step active"></div>
+                    <div class="progress-step active"></div>
+                    <div class="progress-step"></div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 12px; margin-top: 8px;">Langkah 3: Konfirmasi Permohonan</p>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-size: 16px; margin: 0; text-align: center;">Ringkasan Permohonan</h3>
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary); font-size: 14px;">NIK</span>
+                        <span style="font-weight: 500; font-size: 14px;">3201123452152001</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary); font-size: 14px;">Nama Lengkap</span>
+                        <span style="font-weight: 500; font-size: 14px;">Budi Santoso Himalaya</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                        <span style="color: var(--text-secondary); font-size: 14px;">Alamat</span>
+                        <span style="font-weight: 500; font-size: 14px;">Jl. Mawar No. 123, RT 01/02</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <span style="color: var(--text-secondary); font-size: 14px; display: block; margin-bottom: 8px;">Program yang dihentikan</span>
+                        <ul style="margin: 0; padding-left: 16px; font-size: 14px;">
+                            <li style="margin-bottom: 4px;">Bantuan Pangan Non-Tunai</li>
+                            <li style="margin-bottom: 4px;">Bantuan PKH</li>
+                            <li>Bantuan Program Indonesia Pintar</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary); font-size: 14px;">Alasan</span>
+                        <span style="font-weight: 500; font-size: 14px;">Ingin memberikan kesempatan kepada yang lebih membutuhkan</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-secondary); font-size: 14px;">Keterangan Tambahan</span>
+                        <span style="font-weight: 500; font-size: 14px;">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Warning -->
+            <div class="alert alert-warning">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <h4>Perhatian Penting:</h4>
+                    <p>Setelah proses opt-out selesai, Anda tidak dapat mengajukan kembali dalam waktu 2 tahun kecuali ada perubahan kondisi ekonomi yang signifikan dan memenuhi persyaratan ulang.</p>
+                </div>
+            </div>
+
+            <!-- Consent Checkbox -->
+            <div style="margin: 24px 0;">
+                <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
+                    <input type="checkbox" id="consentCheck" style="margin-top: 4px; width: 18px; height: 18px;">
+                    <span style="font-size: 14px; line-height: 1.5;">
+                        Saya menyatakan bahwa data yang saya berikan adalah benar dan saya memahami sepenuhnya konsekuensi dari permohonan opt-out ini.
+                    </span>
+                </label>
+            </div>
+
+            <!-- Action Button -->
+            <button class="btn btn-primary btn-full" id="submitBtn" style="opacity: 0.6;" disabled>
+                Lanjutkan
+            </button>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('consentCheck');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+                submitBtn.style.cursor = 'pointer';
+            } else {
+                submitBtn.style.opacity = '0.6';
+                submitBtn.disabled = true;
+                submitBtn.style.cursor = 'not-allowed';
+            }
+        });
+    </script>
+</body>
+</html>

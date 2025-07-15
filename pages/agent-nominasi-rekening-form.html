@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Rekening - Agent</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pendaftaran Rekening</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Info Card -->
+            <div class="content-header header-agent">
+                <h2>Daftarkan Rekening</h2>
+                <p>Kamu belum mendaftarkan rekening penerima manfaat. Penerima manfaat akan menerima bantuan melalui rekening yang didaftarkan</p>
+            </div>
+
+            <!-- Form -->
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Nama Bank</label>
+                    <select class="form-input form-select">
+                        <option selected disabled>-- Pilih Bank --</option>
+                        <option value="bni">Bank Negara Indonesia (BNI)</option>
+                        <option value="mandiri">Bank Mandiri</option>
+                        <option value="bri">Bank Rakyat Indonesia (BRI)</option>
+                        <option value="bca">Bank Central Asia (BCA)</option>
+                        <option value="bsi">Bank Syariah Indonesia (BSI)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nomor Rekening</label>
+                    <input type="text" class="form-input" placeholder="Masukkan Nomor Rekening">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Pemilik Rekening</label>
+                    <input type="text" class="form-input" placeholder="Input nama pemilik rekening">
+                </div>
+
+                <!-- Additional Info -->
+                <div class="alert alert-info" style="margin-top: 24px;">
+                    <div class="alert-icon">ℹ️</div>
+                    <div class="alert-content">
+                        <h4>Informasi Penting</h4>
+                        <p>Pastikan data rekening yang dimasukkan benar dan sesuai dengan identitas penerima manfaat. Rekening akan diverifikasi sebelum diaktifkan.</p>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn btn-success btn-full">Cek Rekening</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

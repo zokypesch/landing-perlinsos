@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Bank</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Simple Bank Selection Modal -->
+        <div style="background: white; min-height: 100vh; padding: 0;">
+            <!-- Bank List -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 20px;">
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'BNI')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">Bank Negara Indonesia (BNI)</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'Mandiri')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">Bank Mandiri</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'BCA')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">Bank Central Asia (BCA)</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'BSI')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">Bank Syariah Indonesia (BSI)</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'GoPay')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">GoPay</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'DANA')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">DANA</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; cursor: pointer; transition: background-color 0.2s;" onclick="selectBank(this, 'LinkAja')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 16px; color: var(--text-primary);">LinkAja</span>
+                        <span style="color: var(--text-secondary);">›</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        function selectBank(element, bankName) {
+            // Remove previous selection
+            const allItems = document.querySelectorAll('[onclick^="selectBank"]');
+            allItems.forEach(item => {
+                item.style.backgroundColor = '';
+                item.style.borderLeft = '';
+            });
+            
+            // Highlight selected bank
+            element.style.backgroundColor = '#F3F9FF';
+            element.style.borderLeft = '4px solid var(--primary-color)';
+            
+            // Store selection and redirect (simulation)
+            console.log('Selected bank:', bankName);
+            
+            // Simulate redirect after selection
+            setTimeout(() => {
+                // In real app, would navigate to next page
+                alert('Bank ' + bankName + ' dipilih. Lanjut ke form pendaftaran.');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

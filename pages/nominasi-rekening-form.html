@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Rekening</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pendaftaran Rekening</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Info Card -->
+            <div class="content-header">
+                <h2>Daftarkan Rekening Anda</h2>
+                <p>Kamu belum mendaftarkan rekening penerima manfaat</p>
+            </div>
+
+            <!-- Form -->
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Nama Bank</label>
+                    <select class="form-input form-select">
+                        <option selected disabled>-- Pilih Bank --</option>
+                        <option value="bni">BNI</option>
+                        <option value="mandiri">Bank Mandiri</option>
+                        <option value="bri">BRI</option>
+                        <option value="bca">BCA</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nomor Rekening</label>
+                    <input type="text" class="form-input" placeholder="Masukkan Nomor Rekening">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Pemilik Rekening</label>
+                    <input type="text" class="form-input" placeholder="Input nama pemilik rekening">
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn btn-primary btn-full">Cek Rekening</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

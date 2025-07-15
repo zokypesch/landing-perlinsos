@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Rekening - Validasi</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+            <button class="back-btn">←</button>
+            <h1 class="nav-title">Pendaftaran Rekening</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Info Card -->
+            <div class="content-header">
+                <h2>Daftarkan Rekening Anda</h2>
+                <p>Kamu belum mendaftarkan rekening penerima manfaat</p>
+            </div>
+
+            <!-- Form with Validated Data -->
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Nama Bank</label>
+                    <div class="form-input" style="display: flex; align-items: center; justify-content: space-between; background: var(--surface);">
+                        <span>Bank Negara Indonesia (BNI)</span>
+                        <span style="color: var(--success-color); font-size: 16px;">✓</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nomor Rekening</label>
+                    <div class="form-input" style="display: flex; align-items: center; justify-content: space-between; background: var(--surface);">
+                        <span>107089678899</span>
+                        <span style="color: var(--success-color); font-size: 16px;">✓</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Pemilik Rekening</label>
+                    <div class="form-input" style="display: flex; align-items: center; justify-content: space-between; background: var(--surface);">
+                        <span>Budi Santoso Himalaya</span>
+                        <span style="color: var(--success-color); font-size: 16px;">✓</span>
+                    </div>
+                </div>
+
+                <!-- Validation Message -->
+                <div class="alert alert-success" style="margin-top: 24px;">
+                    <div class="alert-icon">✓</div>
+                    <div class="alert-content">
+                        <h4>Rekening Berhasil Divalidasi</h4>
+                        <p>Rekening tersebut di atas ditemukan dan cocok dengan data pemilik serta nama Bank. Anda dapat melanjutkan proses pendaftaran, dengan klik tombol "Daftarkan Rekening" berikut.</p>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="card" style="margin-top: 16px;">
+                    <div class="card-content">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--success-color);">✓ Verifikasi Berhasil:</h4>
+                        <ul style="font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin: 0; padding-left: 16px;">
+                            <li style="margin-bottom: 4px;">Nomor rekening valid dan aktif</li>
+                            <li style="margin-bottom: 4px;">Nama pemilik sesuai dengan data KTP</li>
+                            <li style="margin-bottom: 4px;">Bank terdaftar dalam sistem Perlinsos</li>
+                            <li>Rekening dapat menerima transfer bantuan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn btn-primary btn-full">Daftarkan Rekening</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

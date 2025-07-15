@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Alasan Opt-Out</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Simple Dropdown Modal -->
+        <div style="background: white; min-height: 100vh; padding: 20px;">
+            <!-- Reason Selection Dropdown -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectReason(this, 'pendapatan')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 14px; color: var(--text-primary); line-height: 1.5;">Pendapatan sudah di atas UMR/UMP</span>
+                        <span style="color: var(--text-secondary);">○</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectReason(this, 'ekonomi')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 14px; color: var(--text-primary); line-height: 1.5;">Kondisi ekonomi keluarga sudah membaik</span>
+                        <span style="color: var(--text-secondary);">○</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectReason(this, 'kesempatan')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 14px; color: var(--text-primary); line-height: 1.5;">Ingin memberikan kesempatan kepada yang lebih membutuhkan</span>
+                        <span style="color: var(--text-secondary);">○</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background-color 0.2s;" onclick="selectReason(this, 'domisili')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 14px; color: var(--text-primary); line-height: 1.5;">Pindah domisili/tempat tinggal</span>
+                        <span style="color: var(--text-secondary);">○</span>
+                    </div>
+                </div>
+                
+                <div style="padding: 16px 20px; cursor: pointer; transition: background-color 0.2s;" onclick="selectReason(this, 'lainnya')">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 14px; color: var(--text-primary); line-height: 1.5;">Lainnya</span>
+                        <span style="color: var(--text-secondary);">○</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm Button -->
+            <div style="margin-top: 32px;">
+                <button class="btn btn-primary btn-full" id="confirmBtn" style="opacity: 0.6;" disabled>
+                    Konfirmasi Pilihan
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedReason = null;
+        
+        function selectReason(element, reason) {
+            // Remove previous selection
+            const allItems = document.querySelectorAll('[onclick^="selectReason"]');
+            allItems.forEach(item => {
+                item.style.backgroundColor = '';
+                const radio = item.querySelector('span:last-child');
+                radio.textContent = '○';
+                radio.style.color = 'var(--text-secondary)';
+            });
+            
+            // Highlight selected reason
+            element.style.backgroundColor = '#F3F9FF';
+            const radio = element.querySelector('span:last-child');
+            radio.textContent = '●';
+            radio.style.color = 'var(--primary-color)';
+            
+            selectedReason = reason;
+            
+            // Enable confirm button
+            const confirmBtn = document.getElementById('confirmBtn');
+            confirmBtn.style.opacity = '1';
+            confirmBtn.disabled = false;
+            confirmBtn.style.cursor = 'pointer';
+            
+            console.log('Selected reason:', reason);
+        }
+        
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            if (selectedReason) {
+                // In real app, would proceed to next step
+                alert('Alasan dipilih: ' + selectedReason + '. Lanjut ke langkah berikutnya.');
+            }
+        });
+    </script>
+</body>
+</html>

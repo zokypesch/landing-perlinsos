@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Perlinsos - Agreement</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content with overlay -->
+        <div style="background: rgba(0, 0, 0, 0.6); min-height: 100vh; display: flex; flex-direction: column;">
+            <!-- Header Info -->
+            <div style="padding: 20px; color: #9E9E9E;">
+                <h2 style="font-size: 18px; margin-bottom: 16px;">Portal Perlinsos</h2>
+                <p style="font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
+                    Portal Perlinsos akan meminta beberapa informasi dari IKD.
+                </p>
+                
+                <!-- Form Fields -->
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>NIK</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Nama</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Tempat lahir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Tanggal lahir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-input form-select" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); color: white;">
+                        <option>Alamat</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Agreement Section -->
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;">
+                <div style="background: white; border-radius: var(--radius-large); padding: 24px; text-align: center;">
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                        Dengan menekan tombol 'Saya menyetujui', Anda mengizinkan Portal Perlinsos mengakses data berdasarkan 
+                        <a href="#" style="color: var(--primary-color); text-decoration: none;">Syarat Penggunaan & Kebijakan Privasi</a>.
+                    </p>
+                    
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-outline" style="flex: 1;">Batal</button>
+                        <button class="btn btn-primary" style="flex: 1;">Saya Menyetujui</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

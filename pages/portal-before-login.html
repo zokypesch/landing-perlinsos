@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Perlindungan Sosial</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    🏛️
+                </div>
+                <div>
+                    <h1 style="font-size: 16px; font-weight: 600; margin-bottom: 2px;">Portal Perlindungan Sosial</h1>
+                    <p style="font-size: 12px; opacity: 0.9;">Republik Indonesia</p>
+                </div>
+            </div>
+            <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">
+                <div style="width: 32px; height: 20px; background: linear-gradient(90deg, #FF0000 0%, #FF0000 50%, #FFFFFF 50%, #FFFFFF 100%); border-radius: 3px; border: 1px solid rgba(255, 255, 255, 0.3);"></div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Welcome Section -->
+            <div style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Selamat Datang</h2>
+                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">
+                    Portal Perlinsos adalah sistem digital nasional yang memudahkan masyarakat untuk mendaftar dan memantau program bantuan sosial secara mandiri
+                </p>
+            </div>
+
+            <!-- Login Options -->
+            <div style="margin-bottom: 32px;">
+                <button class="btn btn-primary btn-full" style="margin-bottom: 16px;">
+                    <span style="margin-right: 12px;">🔐</span>
+                    Masuk Akun Pribadi (Self Service)
+                </button>
+                
+                <button class="btn btn-primary btn-full">
+                    <span style="margin-right: 12px;">🔐</span>
+                    Masuk Akun Agen (Agent Service)
+                </button>
+            </div>
+
+            <!-- Services Grid -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 16px; margin-bottom: 16px;">Layanan Tersedia</h3>
+                
+                <div class="menu-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #E8F5E8; color: var(--success-color);">📋</div>
+                        <div class="menu-text">Daftar Bantuan<br><span style="color: var(--text-secondary); font-size: 11px;">Daftarkan diri untuk program bantuan sosial</span></div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #E3F2FD; color: var(--primary-color);">💳</div>
+                        <div class="menu-text">Nominasi Rekening<br><span style="color: var(--text-secondary); font-size: 11px;">Daftarkan Nomor Rekening sesuai Preferensi Anda</span></div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #FFF3E0; color: var(--warning-color);">💰</div>
+                        <div class="menu-text">Cek Status<br><span style="color: var(--text-secondary); font-size: 11px;">Pantau status pengajuan bantuan sosial</span></div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #F3E5F5; color: #9C27B0;">🔍</div>
+                        <div class="menu-text">Cari Program Bantuan<br><span style="color: var(--text-secondary); font-size: 11px;">Temukan bantuan yang sesuai</span></div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #E8F5E8; color: var(--success-color);">📊</div>
+                        <div class="menu-text">Informasi Program<br><span style="color: var(--text-secondary); font-size: 11px;">Lihat detail program bantuan</span></div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-icon" style="background: #FFEBEE; color: #F44336;">⬅️</div>
+                        <div class="menu-text">Opt-Out Program<br><span style="color: var(--text-secondary); font-size: 11px;">Jika Anda merasa tidak layak menerima bantuan, Anda dapat mengajukan opt-out dari program bansos.</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program Info -->
+            <div style="margin-top: 32px; text-align: center;">
+                <h3 style="font-size: 16px; margin-bottom: 16px;">Daftar Program Perlindungan Sosial</h3>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%;"></div>
+                            <span style="font-size: 14px; font-weight: 500;">Program Bantuan Pangan Non - Tunai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

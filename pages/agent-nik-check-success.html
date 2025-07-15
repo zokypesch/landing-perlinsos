@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIK Check Success - Agent</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <div class="header header-agent">
+            <div class="header-content">
+                <div class="avatar">👨‍💼</div>
+                <div class="header-text">
+                    <h1>Portal Perlindungan Sosial</h1>
+                    <p>Fikri Firmansyah (Agen Perlinsos)<br>ID Agent: 202501102</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn">📷</button>
+                <button class="icon-btn">🔒</button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Description Card -->
+            <div class="content-header header-agent">
+                <h2>Portal Perlindungan Sosial</h2>
+                <p>Portal Perlinsos adalah sistem digital nasional yang memudahkan masyarakat untuk mendaftar dan memantau program bantuan sosial secara mandiri.</p>
+            </div>
+
+            <!-- Success Modal -->
+            <div style="margin-top: 40px; display: flex; justify-content: center;">
+                <div class="card" style="width: 100%; max-width: 350px; text-align: center;">
+                    <div class="card-content" style="padding: 32px 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 16px;">NIK Ditemukan dan Terdaftar dalam Dukcapil</h3>
+                        
+                        <!-- Success Icon with Search -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto; position: relative;">
+                                <div style="width: 60px; height: 60px; border: 3px solid var(--primary-color); border-radius: 50%; position: absolute; top: 10px; left: 10px; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: var(--success-color); font-size: 24px;">✓</span>
+                                </div>
+                                <div style="width: 24px; height: 24px; background: var(--primary-color); border-radius: 50%; position: absolute; bottom: 0; right: 0; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 12px;">🔍</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5; margin-bottom: 16px;">
+                            NIK penerima manfaat berhasil ditemukan dan terdaftar dalam Database Dukcapil
+                        </p>
+                        
+                        <!-- Timer -->
+                        <p style="font-size: 24px; font-weight: 600; color: var(--text-secondary); margin-bottom: 24px;" id="timer">00:07</p>
+                        
+                        <button class="btn btn-success btn-full">Lanjutkan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        // Timer countdown
+        let timeLeft = 7;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.textContent = '00:00';
+                // Auto proceed
+                setTimeout(() => {
+                    window.location.href = 'agent-menu-perlinsos.html';
+                }, 500);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berhasil Daftar</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content -->
+        <div class="content" style="display: flex; flex-direction: column; justify-content: center; min-height: 100vh; text-align: center;">
+            <!-- Success Icon -->
+            <div style="margin-bottom: 32px;">
+                <div style="width: 120px; height: 120px; margin: 0 auto; background: #E8F5E8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--success-color);">
+                    ✓
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div style="margin-bottom: 40px;">
+                <h1 style="font-size: 24px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary);">
+                    Berhasil Daftar Rekening
+                </h1>
+                <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.5; max-width: 300px; margin: 0 auto;">
+                    Pendaftaran rekening Anda telah berhasil diproses dan akan segera diverifikasi.
+                </p>
+            </div>
+
+            <!-- Info Card -->
+            <div class="card" style="text-align: left; margin-bottom: 32px;">
+                <div class="card-content">
+                    <h3 style="font-size: 16px; margin-bottom: 16px; text-align: center;">Detail Pendaftaran</h3>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary);">Bank:</span>
+                        <span style="font-weight: 500;">Bank Mandiri</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary);">No. Rekening:</span>
+                        <span style="font-weight: 500;">1234567890</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-secondary);">Nama Pemilik:</span>
+                        <span style="font-weight: 500;">Budi Santoso</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-secondary);">Status:</span>
+                        <span style="color: var(--warning-color); font-weight: 500;">Menunggu Verifikasi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="alert alert-info" style="text-align: left; margin-bottom: 32px;">
+                <div class="alert-icon">ℹ️</div>
+                <div class="alert-content">
+                    <h4>Langkah Selanjutnya</h4>
+                    <p>Rekening Anda akan diverifikasi dalam 1-3 hari kerja. Anda akan menerima notifikasi setelah verifikasi selesai.</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <button class="btn btn-primary btn-full">Kembali ke Dashboard</button>
+                <button class="btn btn-outline btn-full">Lihat Status Verifikasi</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>
