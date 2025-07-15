@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan KTP - Portal Agent Perlinsos</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content -->
+        <div class="content" style="padding-top: var(--spacing-lg);">
+            <!-- Header with Back Button -->
+            <div class="nav-header" style="padding: var(--spacing-lg) 0; border-bottom: none;">
+                <button onclick="history.back()" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="nav-title" style="margin-left: 0;">Scan KTP Warga</div>
+            </div>
+
+            <!-- Header Section -->
+            <div class="ktp-scan-header">
+                <div class="ktp-scan-header-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h1 class="ktp-scan-title">Pemindaian KTP</h1>
+                <p class="ktp-scan-description">Pindai KTP warga untuk mengekstrak data identitas secara otomatis</p>
+            </div>
+
+            <!-- Instructions -->
+            <div class="alert alert-info">
+                <div class="alert-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Tips Pemindaian Optimal</h4>
+                    <ul style="margin: 8px 0 0 16px; font-size: 13px; line-height: 1.5;">
+                        <li>Pastikan KTP dalam kondisi bersih dan tidak rusak</li>
+                        <li>Hindari pantulan cahaya pada permukaan KTP</li>
+                        <li>Posisikan KTP secara horizontal dan rata</li>
+                        <li>Pastikan semua sudut KTP terlihat dalam frame</li>
+                        <li>Gunakan pencahayaan yang cukup terang</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="alert alert-warning">
+                <div class="alert-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Keamanan Data</h4>
+                    <p>Data KTP yang dipindai akan dienkripsi dan hanya digunakan untuk keperluan verifikasi bantuan sosial sesuai dengan peraturan yang berlaku.</p>
+                </div>
+            </div>
+
+            <!-- Camera Section -->
+            <div id="cameraSection" class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-content" style="text-align: center;">
+                    <!-- Camera Container -->
+                    <div id="cameraContainer" class="ktp-camera-container">
+                        <!-- Camera Preview -->
+                        <div id="cameraFrame" class="ktp-camera-frame">
+                            <div id="cameraPlaceholder" class="ktp-camera-placeholder">
+                                <i class="fas fa-camera" style="font-size: 48px; margin-bottom: var(--spacing-lg); color: var(--gray-400);"></i>
+                                <p style="font-size: 14px; margin: 0;">Tekan tombol untuk mengaktifkan kamera</p>
+                            </div>
+                            
+                            <!-- KTP Detection Overlay -->
+                            <div id="ktpOverlay" class="ktp-overlay">
+                                <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--blue-primary); color: white; padding: 4px 12px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                                    Posisikan KTP di dalam area
+                                </div>
+                                <!-- Corner indicators -->
+                                <div class="ktp-corner-indicator top-left"></div>
+                                <div class="ktp-corner-indicator top-right"></div>
+                                <div class="ktp-corner-indicator bottom-left"></div>
+                                <div class="ktp-corner-indicator bottom-right"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Detection Status -->
+                        <div id="detectionStatus" class="ktp-detection-status">
+                            <div id="statusText" class="ktp-status-text">
+                                Siap untuk memindai KTP
+                            </div>
+                            <div id="detectionIndicator" class="ktp-detection-indicator">
+                                <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div id="qualityBars" class="ktp-quality-bars">
+                                        <div class="ktp-quality-bar"></div>
+                                        <div class="ktp-quality-bar"></div>
+                                        <div class="ktp-quality-bar"></div>
+                                        <div class="ktp-quality-bar"></div>
+                                        <div class="ktp-quality-bar"></div>
+                                    </div>
+                                    <span id="qualityText" style="font-size: 12px; color: var(--text-secondary);">Kualitas: Rendah</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camera Controls -->
+                    <div id="cameraControls" style="margin-top: var(--spacing-xl);">
+                        <button id="startCamera" class="btn btn-primary btn-full" style="margin-bottom: var(--spacing-lg);">
+                            <i class="fas fa-video"></i>
+                            Aktifkan Kamera
+                        </button>
+                        
+                        <button id="captureKTP" class="btn btn-success btn-full" style="display: none; margin-bottom: var(--spacing-lg);">
+                            <i class="fas fa-camera"></i>
+                            Pindai KTP
+                        </button>
+                        
+                        <button id="retakePhoto" class="btn btn-outline btn-full" style="display: none;">
+                            <i class="fas fa-redo"></i>
+                            Ambil Ulang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-content" style="text-align: center; padding: var(--spacing-2xl);">
+                <div id="processingAnimation" style="width: 64px; height: 64px; margin: 0 auto var(--spacing-xl); border: 4px solid var(--blue-light); border-top: 4px solid var(--blue-primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <h3 id="processingTitle">Memproses KTP</h3>
+                <p id="processingText" style="color: var(--text-secondary); margin: 0;">Mengekstrak data dari KTP...</p>
+                <div id="processingSteps" style="margin-top: var(--spacing-lg); text-align: left;">
+                    <div class="ktp-processing-step">
+                        <span id="step1">✓ Mendeteksi KTP</span>
+                    </div>
+                    <div class="ktp-processing-step">
+                        <span id="step2">⏳ Mengekstrak teks</span>
+                    </div>
+                    <div class="ktp-processing-step">
+                        <span id="step3">⌛ Memvalidasi data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let currentMode = 'camera';
+        let ktpDetected = false;
+        let imageQuality = 0;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // File upload drag and drop
+            const uploadArea = document.getElementById('uploadArea');
+            
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--blue-primary)';
+                this.style.background = 'var(--blue-light)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--gray-300)';
+                this.style.background = 'transparent';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--gray-300)';
+                this.style.background = 'transparent';
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileUpload({ target: { files: files } });
+                }
+            });
+        }
+
+        function selectScanMode(mode) {
+            currentMode = mode;
+            
+            // Update button states
+            document.querySelectorAll('.scan-mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(mode + 'Mode').classList.add('active');
+            
+            // Show/hide sections
+            if (mode === 'camera') {
+                document.getElementById('cameraSection').style.display = 'block';
+                document.getElementById('uploadSection').style.display = 'none';
+            } else {
+                document.getElementById('cameraSection').style.display = 'none';
+                document.getElementById('uploadSection').style.display = 'block';
+            }
+        }
+
+        // Camera functionality
+        document.getElementById('startCamera').addEventListener('click', function() {
+            startCameraSimulation();
+        });
+
+        document.getElementById('captureKTP').addEventListener('click', function() {
+            captureKTP();
+        });
+
+        document.getElementById('retakePhoto').addEventListener('click', function() {
+            retakePhoto();
+        });
+
+        function startCameraSimulation() {
+            const cameraFrame = document.getElementById('cameraFrame');
+            const placeholder = document.getElementById('cameraPlaceholder');
+            const overlay = document.getElementById('ktpOverlay');
+            const startBtn = document.getElementById('startCamera');
+            const captureBtn = document.getElementById('captureKTP');
+            const detectionIndicator = document.getElementById('detectionIndicator');
+            
+            // Hide start button, show camera active state
+            startBtn.style.display = 'none';
+            
+            // Simulate camera activation
+            placeholder.innerHTML = '<div style="color: var(--blue-primary);"><i class="fas fa-video" style="font-size: 48px; margin-bottom: var(--spacing-lg);"></i><p style="font-size: 14px; margin: 0;">Kamera Aktif - Posisikan KTP</p></div>';
+            
+            setTimeout(() => {
+                overlay.style.display = 'block';
+                detectionIndicator.style.display = 'block';
+                simulateKTPDetection();
+            }, 1000);
+        }
+
+        function simulateKTPDetection() {
+            const qualityBars = document.querySelectorAll('.quality-bar');
+            const qualityText = document.getElementById('qualityText');
+            const statusText = document.getElementById('statusText');
+            const captureBtn = document.getElementById('captureKTP');
+            const cameraFrame = document.getElementById('cameraFrame');
+            
+            // Simulate KTP detection after some time
+            setTimeout(() => {
+                ktpDetected = true;
+                cameraFrame.classList.add('ktp-detected');
+                statusText.textContent = 'KTP terdeteksi! Kualitas gambar sedang dievaluasi...';
+                
+                // Simulate quality improvement
+                let qualityLevel = 0;
+                const qualityInterval = setInterval(() => {
+                    qualityLevel++;
+                    updateQualityBars(qualityLevel);
+                    
+                    if (qualityLevel <= 2) {
+                        qualityText.textContent = 'Kualitas: Rendah';
+                        qualityText.style.color = '#EF4444';
+                    } else if (qualityLevel <= 4) {
+                        qualityText.textContent = 'Kualitas: Sedang';
+                        qualityText.style.color = 'var(--gold-accent)';
+                    } else {
+                        qualityText.textContent = 'Kualitas: Baik';
+                        qualityText.style.color = 'var(--green-success)';
+                        statusText.textContent = 'KTP siap untuk dipindai!';
+                        captureBtn.style.display = 'block';
+                        clearInterval(qualityInterval);
+                    }
+                }, 800);
+            }, 2000);
+        }
+
+        function updateQualityBars(level) {
+            const qualityBars = document.querySelectorAll('.ktp-quality-bar');
+            qualityBars.forEach((bar, index) => {
+                bar.classList.remove('active', 'medium', 'low');
+                if (index < level) {
+                    if (level <= 2) {
+                        bar.classList.add('low');
+                    } else if (level <= 4) {
+                        bar.classList.add('medium');
+                    } else {
+                        bar.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        function captureKTP() {
+            const cameraFrame = document.getElementById('cameraFrame');
+            const captureBtn = document.getElementById('captureKTP');
+            const retakeBtn = document.getElementById('retakePhoto');
+            
+            cameraFrame.classList.remove('ktp-detected');
+            cameraFrame.classList.add('ktp-capturing');
+            
+            captureBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengambil Gambar...';
+            captureBtn.disabled = true;
+            
+            setTimeout(() => {
+                processKTP();
+            }, 2000);
+        }
+
+        function retakePhoto() {
+            // Reset camera interface
+            document.getElementById('cameraFrame').classList.remove('ktp-detected', 'ktp-capturing');
+            document.getElementById('ktpOverlay').style.display = 'none';
+            document.getElementById('detectionIndicator').style.display = 'none';
+            document.getElementById('captureKTP').style.display = 'none';
+            document.getElementById('retakePhoto').style.display = 'none';
+            document.getElementById('startCamera').style.display = 'block';
+            document.getElementById('statusText').textContent = 'Siap untuk memindai KTP';
+            document.getElementById('cameraPlaceholder').innerHTML = '<i class="fas fa-camera" style="font-size: 48px; margin-bottom: var(--spacing-lg); color: var(--gray-400);"></i><p style="font-size: 14px; margin: 0;">Tekan tombol untuk mengaktifkan kamera</p>';
+            
+            ktpDetected = false;
+            imageQuality = 0;
+        }
+
+        // Upload functionality
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Validate file type
+            if (!file.type.startsWith('image/')) {
+                alert('Mohon pilih file gambar (JPG, PNG, etc.)');
+                return;
+            }
+            
+            // Validate file size (5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Ukuran file terlalu besar. Maksimal 5MB.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewImage = document.getElementById('previewImage');
+                const uploadPreview = document.getElementById('uploadPreview');
+                
+                previewImage.src = e.target.result;
+                uploadPreview.style.display = 'block';
+                
+                // Hide upload area
+                document.getElementById('uploadArea').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearUpload() {
+            document.getElementById('uploadPreview').style.display = 'none';
+            document.getElementById('uploadArea').style.display = 'block';
+            document.getElementById('ktpFileInput').value = '';
+        }
+
+        function processUploadedKTP() {
+            processKTP();
+        }
+
+        function processKTP() {
+            // Show processing modal
+            document.getElementById('processingModal').style.display = 'flex';
+            
+            // Simulate processing steps
+            const steps = [
+                { id: 'step1', text: '✓ Mendeteksi KTP', delay: 1000 },
+                { id: 'step2', text: '✓ Mengekstrak teks', delay: 2000 },
+                { id: 'step3', text: '✓ Memvalidasi data', delay: 3000 }
+            ];
+            
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    document.getElementById(step.id).textContent = step.text;
+                    document.getElementById(step.id).style.color = 'var(--green-success)';
+                    
+                    if (index === steps.length - 1) {
+                        setTimeout(() => {
+                            // Simulate success/failure (80% success rate)
+                            if (Math.random() > 0.2) {
+                                window.location.href = 'agent-scan-ktp-success.html';
+                            } else {
+                                window.location.href = 'agent-scan-ktp-failed.html';
+                            }
+                        }, 1000);
+                    }
+                }, step.delay);
+            });
+        }
+    </script>
+</body>
+</html>

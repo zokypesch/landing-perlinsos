@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemindaian KTP Gagal - Portal Agent Perlinsos</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content -->
+        <div class="content" style="padding-top: var(--spacing-lg);">
+            <!-- Header with Back Button -->
+            <div class="nav-header" style="padding: var(--spacing-lg) 0; border-bottom: none;">
+                <button onclick="goBack()" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="nav-title" style="margin-left: 0;">Pemindaian Gagal</div>
+            </div>
+
+            <!-- Error Animation -->
+            <div style="text-align: center; margin-bottom: var(--spacing-2xl);">
+                <div style="width: 100px; height: 100px; margin: 0 auto var(--spacing-lg); background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--white-primary); box-shadow: var(--shadow-xl); animation: ktp-error-shake 0.5s ease-in-out;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <h1 style="font-size: 24px; font-weight: 700; color: var(--gray-900); margin-bottom: var(--spacing-sm);">Pemindaian KTP Gagal</h1>
+                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">Sistem tidak dapat membaca data dari KTP dengan akurat</p>
+            </div>
+
+            <!-- Error Details -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-header" style="background: #FEF2F2; color: #DC2626;">
+                    <h3 style="font-size: 16px; margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Detail Kegagalan
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <!-- Error Summary -->
+                    <div style="margin-bottom: var(--spacing-xl);">
+                        <div style="background: #FEF2F2; padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid #DC2626;">
+                            <h4 style="font-size: 14px; font-weight: 600; color: #DC2626; margin-bottom: var(--spacing-sm);">Alasan Kegagalan:</h4>
+                            <p id="errorMessage" style="font-size: 14px; color: var(--text-primary); margin: 0; line-height: 1.5;">Kualitas gambar terlalu rendah. Sistem tidak dapat mendeteksi teks dengan akurasi yang memadai.</p>
+                        </div>
+                    </div>
+
+                    <!-- Processing Steps Status -->
+                    <div class="checklist">
+                        <div class="checklist-item" id="step1Status" style="background: var(--green-light);">
+                            <div class="check-icon" style="background: var(--green-success);">
+                                <i class="fas fa-check" style="font-size: 12px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Deteksi KTP</strong><br>
+                                <span style="color: var(--green-success); font-size: 13px; font-weight: 600;">Berhasil - KTP terdeteksi dalam gambar</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item" id="step2Status" style="background: #FEF2F2;">
+                            <div class="check-icon" style="background: #DC2626;">
+                                <i class="fas fa-times" style="font-size: 12px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Ekstraksi Teks</strong><br>
+                                <span style="color: #DC2626; font-size: 13px; font-weight: 600;">Gagal - Kualitas teks tidak memadai untuk OCR</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item" id="step3Status" style="background: var(--gray-100);">
+                            <div class="check-icon" style="background: var(--gray-400);">
+                                <i class="fas fa-minus" style="font-size: 12px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Validasi Data</strong><br>
+                                <span style="color: var(--gray-500); font-size: 13px; font-weight: 600;">Tidak dijalankan - Tahap sebelumnya gagal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Analysis -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-header" style="background: var(--gold-light); color: var(--gold-accent);">
+                    <h4 style="font-size: 16px; margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-chart-bar"></i>
+                        Analisis Kualitas Gambar
+                    </h4>
+                </div>
+                <div class="card-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        <div class="quality-metric">
+                            <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Kecerahan</div>
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div class="ktp-quality-bar-container">
+                                    <div class="ktp-quality-bar-fill" style="width: 35%; background: #EF4444;"></div>
+                                </div>
+                                <span style="font-size: 12px; color: #EF4444; font-weight: 600;">35%</span>
+                            </div>
+                        </div>
+                        <div class="quality-metric">
+                            <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Kontras</div>
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div class="ktp-quality-bar-container">
+                                    <div class="ktp-quality-bar-fill" style="width: 42%; background: #EF4444;"></div>
+                                </div>
+                                <span style="font-size: 12px; color: #EF4444; font-weight: 600;">42%</span>
+                            </div>
+                        </div>
+                        <div class="quality-metric">
+                            <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Ketajaman</div>
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div class="ktp-quality-bar-container">
+                                    <div class="ktp-quality-bar-fill" style="width: 28%; background: #EF4444;"></div>
+                                </div>
+                                <span style="font-size: 12px; color: #EF4444; font-weight: 600;">28%</span>
+                            </div>
+                        </div>
+                        <div class="quality-metric">
+                            <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Resolusi</div>
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div class="ktp-quality-bar-container">
+                                    <div class="ktp-quality-bar-fill" style="width: 65%; background: var(--gold-accent);"></div>
+                                </div>
+                                <span style="font-size: 12px; color: var(--gold-accent); font-weight: 600;">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #FEF2F2; padding: var(--spacing-lg); border-radius: var(--radius-lg);">
+                        <div style="font-size: 14px; font-weight: 600; color: #DC2626; margin-bottom: var(--spacing-sm);">
+                            Skor Kualitas Keseluruhan: 42.5%
+                        </div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">
+                            Minimum diperlukan: 75% untuk pemindaian yang akurat
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Issues -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-header" style="background: var(--blue-light); color: var(--blue-primary);">
+                    <h4 style="font-size: 16px; margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-lightbulb"></i>
+                        Kemungkinan Penyebab
+                    </h4>
+                </div>
+                <div class="card-content">
+                    <div class="ktp-issue-list">
+                        <div class="ktp-issue-item">
+                            <div class="ktp-issue-icon">
+                                <i class="fas fa-sun" style="color: var(--gold-accent);"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Pencahayaan Kurang</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Gambar terlalu gelap atau ada bayangan pada KTP</div>
+                            </div>
+                        </div>
+                        <div class="ktp-issue-item">
+                            <div class="ktp-issue-icon">
+                                <i class="fas fa-eye" style="color: var(--blue-primary);"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Gambar Buram</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">KTP tidak fokus atau tangan bergetar saat pengambilan</div>
+                            </div>
+                        </div>
+                        <div class="ktp-issue-item">
+                            <div class="ktp-issue-icon">
+                                <i class="fas fa-search-minus" style="color: var(--red-primary);"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Resolusi Rendah</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">KTP terlalu kecil dalam frame atau kamera resolusi rendah</div>
+                            </div>
+                        </div>
+                        <div class="ktp-issue-item">
+                            <div class="ktp-issue-icon">
+                                <i class="fas fa-adjust" style="color: var(--gray-600);"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Pantulan Cahaya</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Ada silau atau pantulan pada permukaan KTP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Options -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: var(--spacing-lg); color: var(--gray-900);">Pilihan Tindakan</h3>
+                
+                <!-- Retry Scan -->
+                <div class="card" style="margin-bottom: var(--spacing-lg);">
+                    <div class="card-content" style="text-align: center;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto var(--spacing-lg); background: var(--blue-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-redo" style="color: var(--blue-primary); font-size: 20px;"></i>
+                        </div>
+                        <h4 style="font-size: 16px; margin-bottom: var(--spacing-sm); color: var(--gray-900);">Coba Pindai Lagi</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: var(--spacing-lg); line-height: 1.5;">
+                            Perbaiki kondisi pencahayaan dan posisi KTP, lalu coba pindai ulang
+                        </p>
+                        <button onclick="retryScanning()" class="btn btn-primary btn-full">
+                            <i class="fas fa-camera"></i>
+                            Pindai Ulang dengan Tips
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Manual Input -->
+                <div class="card" style="margin-bottom: var(--spacing-lg);">
+                    <div class="card-content" style="text-align: center;">
+                        <div style="width: 48px; height: 48px; margin: 0 auto var(--spacing-lg); background: var(--green-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-keyboard" style="color: var(--green-success); font-size: 20px;"></i>
+                        </div>
+                        <h4 style="font-size: 16px; margin-bottom: var(--spacing-sm); color: var(--gray-900);">Input Manual</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: var(--spacing-lg); line-height: 1.5;">
+                            Masukkan data KTP secara manual jika pemindaian terus gagal
+                        </p>
+                        <button onclick="manualInput()" class="btn btn-success btn-full">
+                            <i class="fas fa-edit"></i>
+                            Input Data Manual
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scan Attempt Info -->
+            <div id="attemptInfo" class="alert alert-warning">
+                <div class="alert-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Informasi Percobaan</h4>
+                    <p>Percobaan ke-<span id="attemptCount">1</span> dari 5 | <span id="remainingAttempts">4</span> percobaan tersisa</p>
+                    <div style="font-size: 12px; margin-top: var(--spacing-sm);">
+                        <div>Error ID: KTP-ERR-<span id="errorId">240715154203</span></div>
+                        <div>Waktu: <span id="errorTime">15:42 WIB, 15 Juli 2024</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let attemptCount = 1;
+        const maxAttempts = 5;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set error timestamp
+            const now = new Date();
+            document.getElementById('errorTime').textContent = 
+                now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    timeZoneName: 'short' 
+                }) + ', ' + now.toLocaleDateString('id-ID', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
+            
+            // Generate error ID
+            const errorId = now.getFullYear().toString().substr(-2) + 
+                           String(now.getMonth() + 1).padStart(2, '0') + 
+                           String(now.getDate()).padStart(2, '0') + 
+                           String(now.getHours()).padStart(2, '0') + 
+                           String(now.getMinutes()).padStart(2, '0') + 
+                           String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('errorId').textContent = errorId;
+
+            // Get attempt count from URL or storage
+            const urlParams = new URLSearchParams(window.location.search);
+            const attempt = parseInt(urlParams.get('attempt')) || 1;
+            
+            updateAttemptCount(attempt);
+            generateRandomError();
+        });
+
+        function updateAttemptCount(attempt) {
+            attemptCount = Math.min(attempt, maxAttempts);
+            document.getElementById('attemptCount').textContent = attemptCount;
+            document.getElementById('remainingAttempts').textContent = Math.max(maxAttempts - attemptCount, 0);
+            
+            // Update UI based on attempts
+            if (attemptCount >= maxAttempts) {
+                const retryButton = document.querySelector('button[onclick="retryScanning()"]');
+                retryButton.disabled = true;
+                retryButton.innerHTML = '<i class="fas fa-ban"></i> Batas Percobaan Tercapai';
+                retryButton.classList.remove('btn-primary');
+                retryButton.classList.add('btn-secondary');
+                
+                document.getElementById('attemptInfo').style.background = '#FEF2F2';
+                document.getElementById('attemptInfo').style.borderColor = '#DC2626';
+                document.querySelector('#attemptInfo .alert-content h4').style.color = '#DC2626';
+                document.querySelector('#attemptInfo .alert-content p').innerHTML = 
+                    'Batas maksimal percobaan telah tercapai. Silakan gunakan input manual atau hubungi supervisor.';
+            }
+        }
+
+        function generateRandomError() {
+            const errors = [
+                {
+                    message: "Kualitas gambar terlalu rendah. Sistem tidak dapat mendeteksi teks dengan akurasi yang memadai.",
+                    step1: true,
+                    step2: false,
+                    step3: false
+                },
+                {
+                    message: "KTP tidak terdeteksi dalam gambar. Pastikan seluruh area KTP berada dalam frame kamera.",
+                    step1: false,
+                    step2: false,
+                    step3: false
+                },
+                {
+                    message: "Teks pada KTP tidak dapat dibaca dengan jelas. Periksa pencahayaan dan fokus kamera.",
+                    step1: true,
+                    step2: false,
+                    step3: false
+                },
+                {
+                    message: "Data yang diekstrak tidak konsisten atau tidak valid. KTP mungkin rusak atau terlipat.",
+                    step1: true,
+                    step2: true,
+                    step3: false
+                }
+            ];
+
+            const randomError = errors[Math.floor(Math.random() * errors.length)];
+            document.getElementById('errorMessage').textContent = randomError.message;
+            
+            // Update step statuses
+            updateStepStatus('step1Status', randomError.step1);
+            updateStepStatus('step2Status', randomError.step2);
+            updateStepStatus('step3Status', randomError.step3);
+        }
+
+        function updateStepStatus(stepId, success) {
+            const stepElement = document.getElementById(stepId);
+            const checkIcon = stepElement.querySelector('.check-icon');
+            const statusText = stepElement.querySelector('.checklist-text span');
+            
+            if (success) {
+                stepElement.style.background = 'var(--green-light)';
+                checkIcon.style.background = 'var(--green-success)';
+                checkIcon.innerHTML = '<i class="fas fa-check" style="font-size: 12px;"></i>';
+                statusText.style.color = 'var(--green-success)';
+            } else {
+                stepElement.style.background = '#FEF2F2';
+                checkIcon.style.background = '#DC2626';
+                checkIcon.innerHTML = '<i class="fas fa-times" style="font-size: 12px;"></i>';
+                statusText.style.color = '#DC2626';
+            }
+        }
+
+        function retryScanning() {
+            if (attemptCount >= maxAttempts) {
+                alert('Batas maksimal percobaan telah tercapai. Silakan gunakan input manual.');
+                return;
+            }
+            
+            // Show loading state
+            const button = document.querySelector('button[onclick="retryScanning()"]');
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memulai Ulang...';
+            button.disabled = true;
+            
+            // Redirect with attempt parameter
+            setTimeout(() => {
+                const nextAttempt = attemptCount + 1;
+                window.location.href = `agent-scan-ktp.html?attempt=${nextAttempt}`;
+            }, 1000);
+        }
+
+        function manualInput() {
+            // In a real implementation, this would redirect to manual input form
+            alert('Mengarahkan ke form input manual... (Demo mode)');
+            // window.location.href = 'agent-manual-input-ktp.html';
+        }
+
+        function reportIssue() {
+            const errorId = document.getElementById('errorId').textContent;
+            const errorDetails = {
+                errorId: 'KTP-ERR-' + errorId,
+                timestamp: document.getElementById('errorTime').textContent,
+                attempt: attemptCount,
+                userAgent: navigator.userAgent,
+                error: document.getElementById('errorMessage').textContent
+            };
+            
+            // In a real implementation, this would send error report to server
+            alert('Laporan error telah dikirim dengan ID: KTP-ERR-' + errorId + '\n\nTim teknis akan meninjau masalah ini.');
+        }
+
+        function skipForNow() {
+            if (confirm('Apakah Anda yakin ingin melewati pemindaian KTP? Data identitas harus diisi manual nanti.')) {
+                // In a real implementation, this would continue the process without KTP data
+                alert('Melanjutkan tanpa data KTP... (Demo mode)');
+                // window.location.href = 'agent-dashboard.html';
+            }
+        }
+
+        function goBack() {
+            if (confirm('Kembali akan menghapus hasil percobaan. Apakah Anda yakin?')) {
+                history.back();
+            }
+        }
+
+        // Store attempt count in session storage
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('ktpScanAttempt', attemptCount);
+        });
+    </script>
+</body>
+</html>
