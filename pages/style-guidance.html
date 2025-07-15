@@ -193,6 +193,30 @@
         .tab-content.active {
             display: block;
         }
+
+        /* Navigation links styling */
+        .component-demo a {
+            color: var(--red-primary);
+            text-decoration: none;
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: var(--transition-fast);
+        }
+
+        .component-demo a:hover {
+            background: var(--red-primary);
+            color: white;
+        }
+
+        /* Scroll behavior for smooth navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add padding to sections for better anchor positioning */
+        .section {
+            scroll-margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -205,9 +229,80 @@
         </div>
 
         <div class="desktop-content">
+            <!-- Component Reference Guide -->
+            <section class="section" id="component-reference">
+                <h2><i class="fas fa-book"></i> Component Reference Guide</h2>
+                <p>This style guide includes comprehensive documentation for all components found across the Perlinsos application. Click any section below to jump directly to that component category:</p>
+                
+                <div class="component-grid">
+                    <div class="component-demo">
+                        <h4>Basic Components</h4>
+                        <ul>
+                            <li><a href="#color-palette">Color Palette</a></li>
+                            <li><a href="#buttons">Buttons & Icons</a></li>
+                            <li><a href="#cards">Cards & Containers</a></li>
+                            <li><a href="#forms">Form Elements</a></li>
+                            <li><a href="#alerts">Alerts & Notifications</a></li>
+                        </ul>
+                    </div>
+                    <div class="component-demo">
+                        <h4>Navigation & Layout</h4>
+                        <ul>
+                            <li><a href="#navigation">Navigation Headers</a></li>
+                            <li><a href="#menu-grid">Menu Grids</a></li>
+                            <li><a href="#mobile-layout">Mobile Layout Patterns</a></li>
+                            <li><a href="#modal">Modals & Dialogs</a></li>
+                            <li><a href="#progress">Progress Indicators</a></li>
+                        </ul>
+                    </div>
+                    <div class="component-demo">
+                        <h4>KTP & Biometric</h4>
+                        <ul>
+                            <li><a href="#ktp-scanning">KTP Scanning Components</a></li>
+                            <li><a href="#ktp-data">KTP Data Components</a></li>
+                            <li><a href="#ktp-issues">KTP Issue Components</a></li>
+                            <li><a href="#biometric">Biometric Components</a></li>
+                            <li><a href="#quality-analysis">Quality Analysis</a></li>
+                        </ul>
+                    </div>
+                    <div class="component-demo">
+                        <h4>Business Logic</h4>
+                        <ul>
+                            <li><a href="#program-cards">Program Cards</a></li>
+                            <li><a href="#transaction">Transaction Components</a></li>
+                            <li><a href="#status">Status Components</a></li>
+                            <li><a href="#consent">Consent & Agreement</a></li>
+                            <li><a href="#empty-state">Empty State Components</a></li>
+                        </ul>
+                    </div>
+                    <div class="component-demo">
+                        <h4>Interactive Components</h4>
+                        <ul>
+                            <li><a href="#chat">Chat Interface</a></li>
+                            <li><a href="#faq">FAQ & Help Components</a></li>
+                            <li><a href="#animations">Animations</a></li>
+                            <li><a href="#utility">Utility Classes</a></li>
+                            <li><a href="#css-variables">CSS Variables</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background: var(--gray-50); border-radius: var(--radius-lg); border: 1px solid var(--gray-200);">
+                    <h4><i class="fas fa-info-circle"></i> Usage Instructions</h4>
+                    <p>Each component section includes:</p>
+                    <ul>
+                        <li><strong>Visual Preview:</strong> See how the component looks</li>
+                        <li><strong>Copy-able Code:</strong> Ready-to-use HTML markup</li>
+                        <li><strong>Usage Notes:</strong> When and how to use each component</li>
+                        <li><strong>Variations:</strong> Different states and configurations</li>
+                    </ul>
+                </div>
+            </section>
+
             <!-- Color Palette Section -->
-            <section class="section">
+            <section class="section" id="color-palette">
                 <h2><i class="fas fa-palette"></i> Color Palette</h2>
+                <p><strong>Usage:</strong> Use these color variables throughout your application for consistent theming. The palette is based on Indonesian Independence Day colors (red, white, gold).</p>
                 <div class="color-palette">
                     <div class="color-swatch" style="background: var(--red-primary)">
                         Red Primary<br>#DC2626
@@ -237,8 +332,9 @@
             </section>
 
             <!-- Buttons Section -->
-            <section class="section">
+            <section class="section" id="buttons">
                 <h2><i class="fas fa-mouse-pointer"></i> Buttons</h2>
+                <p><strong>Usage:</strong> Use buttons for actions and interactions. Choose the appropriate button type based on the action's importance and context.</p>
                 
                 <!-- Primary Button -->
                 <div class="component-showcase">
@@ -348,8 +444,9 @@
             </section>
 
             <!-- Cards Section -->
-            <section class="section">
+            <section class="section" id="cards">
                 <h2><i class="fas fa-clone"></i> Cards</h2>
+                <p><strong>Usage:</strong> Cards are used to group related content and actions. They provide a clean, organized way to display information with clear boundaries.</p>
                 
                 <!-- Basic Card -->
                 <div class="component-showcase">
@@ -427,8 +524,9 @@
             </section>
 
             <!-- Forms Section -->
-            <section class="section">
+            <section class="section" id="forms">
                 <h2><i class="fas fa-edit"></i> Form Elements</h2>
+                <p><strong>Usage:</strong> Form elements are used for user input and data collection. Always include proper labels and use appropriate input types for better user experience.</p>
                 
                 <!-- Text Input -->
                 <div class="component-showcase">
@@ -518,8 +616,9 @@
             </section>
 
             <!-- Program Cards Section -->
-            <section class="section">
+            <section class="section" id="program-cards">
                 <h2><i class="fas fa-gift"></i> Program Cards</h2>
+                <p><strong>Usage:</strong> Program cards display social assistance programs with their status, amount, and description. Use different status classes to indicate program state.</p>
                 
                 <!-- Program Card - Active -->
                 <div class="component-showcase">
@@ -619,8 +718,9 @@
             </section>
 
             <!-- Alerts Section -->
-            <section class="section">
+            <section class="section" id="alerts">
                 <h2><i class="fas fa-exclamation-triangle"></i> Alerts</h2>
+                <p><strong>Usage:</strong> Alerts provide important feedback to users about system status, actions, or errors. Choose the appropriate alert type based on the message importance.</p>
                 
                 <!-- Info Alert -->
                 <div class="component-showcase">
@@ -708,8 +808,9 @@
             </section>
 
             <!-- Menu Grid Section -->
-            <section class="section">
+            <section class="section" id="menu-grid">
                 <h2><i class="fas fa-th"></i> Menu Grid</h2>
+                <p><strong>Usage:</strong> Menu grids provide organized navigation for multiple options. Use icons and clear labels to help users understand each menu item's purpose.</p>
                 
                 <!-- Menu Grid Layout -->
                 <div class="component-showcase">
@@ -799,8 +900,9 @@
             </section>
 
             <!-- Modal Section -->
-            <section class="section">
+            <section class="section" id="modal">
                 <h2><i class="fas fa-window-maximize"></i> Modal</h2>
+                <p><strong>Usage:</strong> Modals are used for focused interactions that require user attention. They should contain clear actions and be easily dismissible.</p>
                 
                 <!-- Modal Example -->
                 <div class="component-showcase">
@@ -843,8 +945,9 @@
             </section>
 
             <!-- Biometric Section -->
-            <section class="section">
+            <section class="section" id="biometric">
                 <h2><i class="fas fa-fingerprint"></i> Biometric Components</h2>
+                <p><strong>Usage:</strong> Biometric components guide users through fingerprint verification processes. Provide clear instructions and feedback during the verification process.</p>
                 
                 <!-- Biometric Container -->
                 <div class="component-showcase">
@@ -926,8 +1029,9 @@
             </section>
 
             <!-- KTP Scanning Section -->
-            <section class="section">
+            <section class="section" id="ktp-scanning">
                 <h2><i class="fas fa-id-card"></i> KTP Scanning Components</h2>
+                <p><strong>Usage:</strong> KTP scanning components help users capture and process Indonesian ID cards. Include quality indicators and clear instructions for best results.</p>
                 
                 <!-- KTP Scan Header -->
                 <div class="component-showcase">
@@ -1024,8 +1128,9 @@
             </section>
 
             <!-- KTP Data Section -->
-            <section class="section">
+            <section class="section" id="ktp-data">
                 <h2><i class="fas fa-database"></i> KTP Data Components</h2>
+                <p><strong>Usage:</strong> KTP data components display extracted information from ID cards with confidence levels. Show confidence badges to indicate data accuracy.</p>
                 
                 <!-- KTP Data Grid - Single Column -->
                 <div class="component-showcase">
@@ -1105,8 +1210,9 @@
             </section>
 
             <!-- KTP Issues Section -->
-            <section class="section">
+            <section class="section" id="ktp-issues">
                 <h2><i class="fas fa-exclamation-circle"></i> KTP Issue Components</h2>
+                <p><strong>Usage:</strong> KTP issue components help users understand and resolve problems with ID card scanning. Use clear icons and descriptions to guide users.</p>
                 
                 <!-- KTP Issue List -->
                 <div class="component-showcase">
@@ -1159,9 +1265,430 @@
                 </div>
             </section>
 
+            <!-- Navigation Components Section -->
+            <section class="section" id="navigation">
+                <h2><i class="fas fa-compass"></i> Navigation Components</h2>
+                <p><strong>Usage:</strong> Navigation components help users move through the application. Use consistent patterns and clear visual hierarchy for better user experience.</p>
+                
+                <!-- Navigation Header -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Navigation Header</h3>
+                        <div class="nav-header">
+                            <button class="back-btn">←</button>
+                            <h1 class="nav-title">Page Title</h1>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="nav-header"&gt;
+    &lt;button class="back-btn"&gt;←&lt;/button&gt;
+    &lt;h1 class="nav-title"&gt;Page Title&lt;/h1&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Header Types -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Header Types</h3>
+                        <div class="mobile-demo">
+                            <div class="header">
+                                <div class="header-content">
+                                    <h1>Standard Header</h1>
+                                    <p>For regular users</p>
+                                </div>
+                            </div>
+                            <div class="header-agent">
+                                <div class="header-content">
+                                    <h1>Agent Header</h1>
+                                    <p>For agents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="header"&gt;
+    &lt;div class="header-content"&gt;
+        &lt;h1&gt;Standard Header&lt;/h1&gt;
+        &lt;p&gt;For regular users&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="header-agent"&gt;
+    &lt;div class="header-content"&gt;
+        &lt;h1&gt;Agent Header&lt;/h1&gt;
+        &lt;p&gt;For agents&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Bottom Navigation</h3>
+                        <div class="bottom-nav">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="bottom-nav"&gt;
+    &lt;div class="home-indicator"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transaction Components Section -->
+            <section class="section" id="transaction">
+                <h2><i class="fas fa-exchange-alt"></i> Transaction Components</h2>
+                <p><strong>Usage:</strong> Transaction components display financial information and payment history. Use clear formatting for amounts and dates.</p>
+                
+                <!-- Transaction Card -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Transaction Card</h3>
+                        <div class="card">
+                            <div class="card-content">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="transaction-icon">👥</div>
+                                    <div style="flex: 1;">
+                                        <h4>Program Keluarga Harapan</h4>
+                                        <p>15 Desember 2024, 10:30</p>
+                                    </div>
+                                    <div class="transaction-amount">+Rp 750.000,00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="card"&gt;
+    &lt;div class="card-content"&gt;
+        &lt;div style="display: flex; align-items: center; gap: 16px;"&gt;
+            &lt;div class="transaction-icon"&gt;👥&lt;/div&gt;
+            &lt;div style="flex: 1;"&gt;
+                &lt;h4&gt;Program Keluarga Harapan&lt;/h4&gt;
+                &lt;p&gt;15 Desember 2024, 10:30&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="transaction-amount"&gt;+Rp 750.000,00&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Bank Card -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Bank Card</h3>
+                        <div class="card" style="background: linear-gradient(135deg, #6B73FF 0%, #9575CD 100%); color: white;">
+                            <div class="card-content">
+                                <div class="bank-info">
+                                    <p>Kartu dan Rekening Terdaftar</p>
+                                    <div class="bank-icons">📱💳</div>
+                                </div>
+                                <div class="bank-details">
+                                    <p>****8899</p>
+                                    <p>BUDI SANTOSO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="card" style="background: linear-gradient(135deg, #6B73FF 0%, #9575CD 100%); color: white;"&gt;
+    &lt;div class="card-content"&gt;
+        &lt;div class="bank-info"&gt;
+            &lt;p&gt;Kartu dan Rekening Terdaftar&lt;/p&gt;
+            &lt;div class="bank-icons"&gt;📱💳&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bank-details"&gt;
+            &lt;p&gt;****8899&lt;/p&gt;
+            &lt;p&gt;BUDI SANTOSO&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Components Section -->
+            <section class="section" id="chat">
+                <h2><i class="fas fa-comments"></i> Chat Components</h2>
+                <p><strong>Usage:</strong> Chat components enable real-time communication between users and customer service. Distinguish between user and agent messages clearly.</p>
+                
+                <!-- Chat Message -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Chat Message</h3>
+                        <div class="chat-message">
+                            <div class="chat-avatar">CS</div>
+                            <div class="chat-content">
+                                <div class="chat-bubble">
+                                    Selamat siang, Bapak/Ibu. Ada yang bisa saya bantu?
+                                </div>
+                                <p class="chat-timestamp">10:30</p>
+                            </div>
+                        </div>
+                        <div class="chat-message user">
+                            <div class="chat-content">
+                                <div class="chat-bubble">
+                                    Saya ingin menanyakan tentang program PKH
+                                </div>
+                                <p class="chat-timestamp">10:31</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="chat-message"&gt;
+    &lt;div class="chat-avatar"&gt;CS&lt;/div&gt;
+    &lt;div class="chat-content"&gt;
+        &lt;div class="chat-bubble"&gt;
+            Selamat siang, Bapak/Ibu. Ada yang bisa saya bantu?
+        &lt;/div&gt;
+        &lt;p class="chat-timestamp"&gt;10:30&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="chat-message user"&gt;
+    &lt;div class="chat-content"&gt;
+        &lt;div class="chat-bubble"&gt;
+            Saya ingin menanyakan tentang program PKH
+        &lt;/div&gt;
+        &lt;p class="chat-timestamp"&gt;10:31&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Chat Input</h3>
+                        <div class="chat-input-container">
+                            <input type="text" class="chat-input" placeholder="Ketik pesan...">
+                            <button class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="chat-input-container"&gt;
+    &lt;input type="text" class="chat-input" placeholder="Ketik pesan..."&gt;
+    &lt;button class="send-btn"&gt;
+        &lt;i class="fas fa-paper-plane"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Components Section -->
+            <section class="section" id="faq">
+                <h2><i class="fas fa-question-circle"></i> FAQ & Help Components</h2>
+                <p><strong>Usage:</strong> FAQ and help components provide self-service support to users. Use expandable sections and clear categorization for easy navigation.</p>
+                
+                <!-- FAQ Item -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>FAQ Item</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Bagaimana cara mendaftar program bantuan?</h4>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Untuk mendaftar program bantuan, Anda dapat mengakses portal Perlinsos dan mengikuti langkah-langkah pendaftaran yang tersedia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="faq-item"&gt;
+    &lt;div class="faq-question"&gt;
+        &lt;h4&gt;Bagaimana cara mendaftar program bantuan?&lt;/h4&gt;
+        &lt;span class="faq-icon"&gt;+&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="faq-answer"&gt;
+        &lt;p&gt;Untuk mendaftar program bantuan, Anda dapat mengakses portal Perlinsos dan mengikuti langkah-langkah pendaftaran yang tersedia.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Help Card -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Help Card</h3>
+                        <div class="help-card">
+                            <div class="help-icon">📞</div>
+                            <h4>Hubungi Customer Service</h4>
+                            <p>Butuh bantuan? Hubungi layanan pelanggan kami</p>
+                            <button class="btn btn-primary">Hubungi Sekarang</button>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="help-card"&gt;
+    &lt;div class="help-icon"&gt;📞&lt;/div&gt;
+    &lt;h4&gt;Hubungi Customer Service&lt;/h4&gt;
+    &lt;p&gt;Butuh bantuan? Hubungi layanan pelanggan kami&lt;/p&gt;
+    &lt;button class="btn btn-primary"&gt;Hubungi Sekarang&lt;/button&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Consent & Agreement Components Section -->
+            <section class="section" id="consent">
+                <h2><i class="fas fa-file-contract"></i> Consent & Agreement Components</h2>
+                <p><strong>Usage:</strong> Consent and agreement components handle user permissions and legal agreements. Make terms clear and actions obvious.</p>
+                
+                <!-- Consent Checkbox -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Consent Checkbox</h3>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-checkbox">
+                            <span class="consent-text">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</span>
+                        </label>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;label class="consent-label"&gt;
+    &lt;input type="checkbox" class="consent-checkbox"&gt;
+    &lt;span class="consent-text"&gt;Saya menyetujui &lt;a href="#"&gt;syarat dan ketentuan&lt;/a&gt; yang berlaku&lt;/span&gt;
+&lt;/label&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Agreement Card -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Agreement Card</h3>
+                        <div class="agreement-card">
+                            <div class="agreement-header">
+                                <h4>Persetujuan Penggunaan Data</h4>
+                            </div>
+                            <div class="agreement-content">
+                                <p>Dengan ini saya menyetujui penggunaan data pribadi saya untuk keperluan verifikasi dan proses pendaftaran program bantuan sosial.</p>
+                            </div>
+                            <div class="agreement-actions">
+                                <button class="btn btn-primary">Setuju</button>
+                                <button class="btn btn-secondary">Tidak Setuju</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="agreement-card"&gt;
+    &lt;div class="agreement-header"&gt;
+        &lt;h4&gt;Persetujuan Penggunaan Data&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="agreement-content"&gt;
+        &lt;p&gt;Dengan ini saya menyetujui penggunaan data pribadi saya untuk keperluan verifikasi dan proses pendaftaran program bantuan sosial.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="agreement-actions"&gt;
+        &lt;button class="btn btn-primary"&gt;Setuju&lt;/button&gt;
+        &lt;button class="btn btn-secondary"&gt;Tidak Setuju&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status Components Section -->
+            <section class="section" id="status">
+                <h2><i class="fas fa-info-circle"></i> Status Components</h2>
+                <p><strong>Usage:</strong> Status components communicate the current state of processes, applications, or systems. Use consistent colors and clear language.</p>
+                
+                <!-- Status Badge -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Status Badges</h3>
+                        <div class="flex-demo">
+                            <div class="status-badge status-active">Aktif</div>
+                            <div class="status-badge status-process">Proses</div>
+                            <div class="status-badge status-inactive">Tidak Aktif</div>
+                            <div class="status-badge status-pending">Menunggu</div>
+                            <div class="status-badge status-success">Berhasil</div>
+                            <div class="status-badge status-failed">Gagal</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="status-badge status-active"&gt;Aktif&lt;/div&gt;
+&lt;div class="status-badge status-process"&gt;Proses&lt;/div&gt;
+&lt;div class="status-badge status-inactive"&gt;Tidak Aktif&lt;/div&gt;
+&lt;div class="status-badge status-pending"&gt;Menunggu&lt;/div&gt;
+&lt;div class="status-badge status-success"&gt;Berhasil&lt;/div&gt;
+&lt;div class="status-badge status-failed"&gt;Gagal&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Processing Status -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Processing Status</h3>
+                        <div class="processing-status">
+                            <div class="processing-icon">
+                                <div class="spinner"></div>
+                            </div>
+                            <h4>Memproses Data</h4>
+                            <p>Mohon tunggu sebentar...</p>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="processing-status"&gt;
+    &lt;div class="processing-icon"&gt;
+        &lt;div class="spinner"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h4&gt;Memproses Data&lt;/h4&gt;
+    &lt;p&gt;Mohon tunggu sebentar...&lt;/p&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Empty State Components Section -->
+            <section class="section" id="empty-state">
+                <h2><i class="fas fa-inbox"></i> Empty State Components</h2>
+                <p><strong>Usage:</strong> Empty state components are shown when there's no data to display. Provide helpful guidance and actions to help users proceed.</p>
+                
+                <!-- Empty State -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Empty State</h3>
+                        <div class="empty-state">
+                            <div class="empty-icon">📭</div>
+                            <h4>Belum Ada Data</h4>
+                            <p>Tidak ada transaksi yang ditemukan</p>
+                            <button class="btn btn-primary">Tambah Data</button>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="empty-state"&gt;
+    &lt;div class="empty-icon"&gt;📭&lt;/div&gt;
+    &lt;h4&gt;Belum Ada Data&lt;/h4&gt;
+    &lt;p&gt;Tidak ada transaksi yang ditemukan&lt;/p&gt;
+    &lt;button class="btn btn-primary"&gt;Tambah Data&lt;/button&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
             <!-- Quality Bars Section -->
-            <section class="section">
+            <section class="section" id="quality-analysis">
                 <h2><i class="fas fa-chart-bar"></i> Quality Analysis</h2>
+                <p><strong>Usage:</strong> Quality analysis components show the accuracy and confidence levels of processed data. Use color coding to indicate quality levels.</p>
                 
                 <!-- KTP Quality Bars -->
                 <div class="component-showcase">
@@ -1204,8 +1731,9 @@
             </section>
 
             <!-- Progress Section -->
-            <section class="section">
+            <section class="section" id="progress">
                 <h2><i class="fas fa-tasks"></i> Progress Indicators</h2>
+                <p><strong>Usage:</strong> Progress indicators show users where they are in a multi-step process. Use clear visual feedback and step descriptions.</p>
                 
                 <!-- Progress Steps -->
                 <div class="component-showcase">
@@ -1260,56 +1788,422 @@
             </section>
 
             <!-- Utility Classes Section -->
-            <section class="section">
+            <section class="section" id="utility">
                 <h2><i class="fas fa-tools"></i> Utility Classes</h2>
-                <div class="component-grid">
-                    <div class="component-demo">
+                <p><strong>Usage:</strong> Utility classes provide quick styling options for common needs like text alignment, margins, and visibility. Use these for minor adjustments.</p>
+                
+                <!-- Text Alignment -->
+                <div class="component-showcase">
+                    <div class="component-preview">
                         <h3>Text Alignment</h3>
                         <div class="text-left">Left aligned text</div>
                         <div class="text-center">Center aligned text</div>
                         <div class="text-right">Right aligned text</div>
                     </div>
-                    <div class="component-demo">
-                        <h3>Margins</h3>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Text Alignment Utilities */
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+/* HTML Usage */
+&lt;div class="text-left"&gt;Left aligned text&lt;/div&gt;
+&lt;div class="text-center"&gt;Center aligned text&lt;/div&gt;
+&lt;div class="text-right"&gt;Right aligned text&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Margins -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Margin Utilities</h3>
                         <div class="mb-1">Margin bottom 1</div>
                         <div class="mb-2">Margin bottom 2</div>
                         <div class="mb-3">Margin bottom 3</div>
                         <div class="mb-4">Margin bottom 4</div>
                     </div>
-                    <div class="component-demo">
-                        <h3>Visibility</h3>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Margin Utilities */
+.mb-1 { margin-bottom: var(--spacing-xs) !important; }
+.mb-2 { margin-bottom: var(--spacing-sm) !important; }
+.mb-3 { margin-bottom: var(--spacing-md) !important; }
+.mb-4 { margin-bottom: var(--spacing-lg) !important; }
+
+.mt-1 { margin-top: var(--spacing-xs) !important; }
+.mt-2 { margin-top: var(--spacing-sm) !important; }
+.mt-3 { margin-top: var(--spacing-md) !important; }
+.mt-4 { margin-top: var(--spacing-lg) !important; }
+
+.ml-1 { margin-left: var(--spacing-xs) !important; }
+.ml-2 { margin-left: var(--spacing-sm) !important; }
+.ml-3 { margin-left: var(--spacing-md) !important; }
+.ml-4 { margin-left: var(--spacing-lg) !important; }
+
+.mr-1 { margin-right: var(--spacing-xs) !important; }
+.mr-2 { margin-right: var(--spacing-sm) !important; }
+.mr-3 { margin-right: var(--spacing-md) !important; }
+.mr-4 { margin-right: var(--spacing-lg) !important; }
+
+/* HTML Usage */
+&lt;div class="mb-1"&gt;Margin bottom 1&lt;/div&gt;
+&lt;div class="mb-2"&gt;Margin bottom 2&lt;/div&gt;
+&lt;div class="mb-3"&gt;Margin bottom 3&lt;/div&gt;
+&lt;div class="mb-4"&gt;Margin bottom 4&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Padding -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Padding Utilities</h3>
+                        <div class="p-1" style="background: var(--gray-100); margin-bottom: 8px;">Padding 1</div>
+                        <div class="p-2" style="background: var(--gray-100); margin-bottom: 8px;">Padding 2</div>
+                        <div class="p-3" style="background: var(--gray-100); margin-bottom: 8px;">Padding 3</div>
+                        <div class="p-4" style="background: var(--gray-100);">Padding 4</div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Padding Utilities */
+.p-1 { padding: var(--spacing-xs) !important; }
+.p-2 { padding: var(--spacing-sm) !important; }
+.p-3 { padding: var(--spacing-md) !important; }
+.p-4 { padding: var(--spacing-lg) !important; }
+
+.pt-1 { padding-top: var(--spacing-xs) !important; }
+.pt-2 { padding-top: var(--spacing-sm) !important; }
+.pt-3 { padding-top: var(--spacing-md) !important; }
+.pt-4 { padding-top: var(--spacing-lg) !important; }
+
+.pb-1 { padding-bottom: var(--spacing-xs) !important; }
+.pb-2 { padding-bottom: var(--spacing-sm) !important; }
+.pb-3 { padding-bottom: var(--spacing-md) !important; }
+.pb-4 { padding-bottom: var(--spacing-lg) !important; }
+
+/* HTML Usage */
+&lt;div class="p-1"&gt;Padding 1&lt;/div&gt;
+&lt;div class="p-2"&gt;Padding 2&lt;/div&gt;
+&lt;div class="p-3"&gt;Padding 3&lt;/div&gt;
+&lt;div class="p-4"&gt;Padding 4&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Visibility -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Visibility Utilities</h3>
                         <div class="visible">Visible element</div>
-                        <div class="hidden">Hidden element</div>
+                        <div class="hidden">Hidden element (not visible)</div>
+                        <div class="invisible">Invisible element (takes space)</div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Visibility Utilities */
+.visible {
+    visibility: visible !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+.opacity-0 { opacity: 0 !important; }
+.opacity-25 { opacity: 0.25 !important; }
+.opacity-50 { opacity: 0.5 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-100 { opacity: 1 !important; }
+
+/* HTML Usage */
+&lt;div class="visible"&gt;Visible element&lt;/div&gt;
+&lt;div class="hidden"&gt;Hidden element&lt;/div&gt;
+&lt;div class="invisible"&gt;Invisible element&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Display -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Display Utilities</h3>
+                        <div class="d-block" style="background: var(--gray-100); margin-bottom: 8px; padding: 8px;">Block element</div>
+                        <div class="d-inline" style="background: var(--gray-100); margin-right: 8px; padding: 8px;">Inline</div>
+                        <div class="d-inline" style="background: var(--gray-100); padding: 8px;">Inline</div>
+                        <div class="d-flex" style="background: var(--gray-100); margin-top: 8px; padding: 8px; gap: 8px;">
+                            <div style="background: var(--gray-200); padding: 4px;">Flex item 1</div>
+                            <div style="background: var(--gray-200); padding: 4px;">Flex item 2</div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Display Utilities */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-grid { display: grid !important; }
+
+/* Flex Direction */
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+
+/* Justify Content */
+.justify-start { justify-content: flex-start !important; }
+.justify-center { justify-content: center !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-between { justify-content: space-between !important; }
+
+/* Align Items */
+.items-start { align-items: flex-start !important; }
+.items-center { align-items: center !important; }
+.items-end { align-items: flex-end !important; }
+
+/* HTML Usage */
+&lt;div class="d-block"&gt;Block element&lt;/div&gt;
+&lt;div class="d-flex justify-center items-center"&gt;
+    &lt;div&gt;Centered content&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Font Weight -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Font Weight Utilities</h3>
+                        <div class="font-light">Light text</div>
+                        <div class="font-normal">Normal text</div>
+                        <div class="font-medium">Medium text</div>
+                        <div class="font-semibold">Semibold text</div>
+                        <div class="font-bold">Bold text</div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Font Weight Utilities */
+.font-light { font-weight: 300 !important; }
+.font-normal { font-weight: 400 !important; }
+.font-medium { font-weight: 500 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-bold { font-weight: 700 !important; }
+
+/* Font Size */
+.text-xs { font-size: 0.75rem !important; }
+.text-sm { font-size: 0.875rem !important; }
+.text-base { font-size: 1rem !important; }
+.text-lg { font-size: 1.125rem !important; }
+.text-xl { font-size: 1.25rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+
+/* HTML Usage */
+&lt;div class="font-light"&gt;Light text&lt;/div&gt;
+&lt;div class="font-bold text-lg"&gt;Bold large text&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Color Utilities -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Color Utilities</h3>
+                        <div class="text-primary">Primary text</div>
+                        <div class="text-secondary">Secondary text</div>
+                        <div class="text-success">Success text</div>
+                        <div class="text-danger">Danger text</div>
+                        <div class="text-warning">Warning text</div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Color Utilities */
+.text-primary { color: var(--red-primary) !important; }
+.text-secondary { color: var(--gray-600) !important; }
+.text-success { color: var(--green-success) !important; }
+.text-danger { color: var(--red-primary) !important; }
+.text-warning { color: var(--gold-accent) !important; }
+
+/* Background Colors */
+.bg-primary { background-color: var(--red-primary) !important; }
+.bg-secondary { background-color: var(--gray-100) !important; }
+.bg-success { background-color: var(--green-success) !important; }
+.bg-danger { background-color: var(--red-primary) !important; }
+.bg-warning { background-color: var(--gold-accent) !important; }
+
+/* HTML Usage */
+&lt;div class="text-primary"&gt;Primary text&lt;/div&gt;
+&lt;div class="bg-success text-white p-2"&gt;Success background&lt;/div&gt;</pre>
                     </div>
                 </div>
             </section>
 
             <!-- Animations Section -->
-            <section class="section">
+            <section class="section" id="animations">
                 <h2><i class="fas fa-magic"></i> Animations</h2>
-                <div class="component-grid">
-                    <div class="component-demo">
-                        <h3>Success Pulse</h3>
+                <p><strong>Usage:</strong> Animations provide visual feedback and enhance user experience. Use them sparingly and ensure they serve a functional purpose.</p>
+                
+                <!-- Success Pulse Animation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Success Pulse Animation</h3>
                         <div style="width: 80px; height: 80px; margin: 0 auto; background: var(--green-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; animation: ktp-success-pulse 2s ease-in-out infinite;">
                             <i class="fas fa-check"></i>
                         </div>
                     </div>
-                    <div class="component-demo">
-                        <h3>Error Shake</h3>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Success Pulse Animation */
+@keyframes ktp-success-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Usage */
+.success-icon {
+    animation: ktp-success-pulse 2s ease-in-out infinite;
+}
+
+/* HTML */
+&lt;div class="success-icon"&gt;
+    &lt;i class="fas fa-check"&gt;&lt;/i&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Error Shake Animation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Error Shake Animation</h3>
                         <div style="width: 80px; height: 80px; margin: 0 auto; background: var(--red-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; animation: ktp-error-shake 0.5s ease-in-out;">
                             <i class="fas fa-times"></i>
                         </div>
                     </div>
-                    <div class="component-demo">
-                        <h3>Loading Spinner</h3>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Error Shake Animation */
+@keyframes ktp-error-shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Usage */
+.error-shake {
+    animation: ktp-error-shake 0.5s ease-in-out;
+}
+
+/* HTML */
+&lt;div class="error-shake"&gt;
+    &lt;i class="fas fa-times"&gt;&lt;/i&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Loading Spinner Animation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Loading Spinner Animation</h3>
                         <div style="width: 40px; height: 40px; margin: 0 auto; border: 4px solid var(--gray-200); border-top: 4px solid var(--blue-primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Loading Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Usage */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray-200);
+    border-top: 4px solid var(--blue-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* HTML */
+&lt;div class="spinner"&gt;&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Fade In Animation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Fade In Animation</h3>
+                        <div style="width: 200px; height: 100px; margin: 0 auto; background: var(--blue-primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; animation: fadeIn 1s ease-in-out;">
+                            Fade In Effect
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Usage */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* HTML */
+&lt;div class="fade-in"&gt;
+    Content here
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Slide Up Animation -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Slide Up Animation</h3>
+                        <div style="width: 200px; height: 100px; margin: 0 auto; background: var(--gold-accent); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; animation: slideUp 0.5s ease-out;">
+                            Slide Up Effect
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>/* Slide Up Animation */
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Usage */
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+/* HTML */
+&lt;div class="slide-up"&gt;
+    Content here
+&lt;/div&gt;</pre>
                     </div>
                 </div>
             </section>
 
             <!-- CSS Variables Section -->
-            <section class="section">
+            <section class="section" id="css-variables">
                 <h2><i class="fas fa-code"></i> CSS Variables</h2>
+                <p><strong>Usage:</strong> CSS variables define the design system's core values. Use these variables instead of hardcoded values for consistent theming and easier maintenance.</p>
                 <div class="code-block">
 :root {
     /* Colors */
@@ -1351,20 +2245,180 @@
                 </div>
             </section>
 
+            <!-- Mobile Layout Patterns Section -->
+            <section class="section" id="mobile-layout">
+                <h2><i class="fas fa-mobile-alt"></i> Mobile Layout Patterns</h2>
+                <p><strong>Usage:</strong> Mobile layout patterns provide consistent structure for mobile applications. Use these patterns to ensure proper spacing and navigation.</p>
+                
+                <!-- Mobile Container -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Mobile Container Structure</h3>
+                        <div class="mobile-demo">
+                            <div class="mobile-container">
+                                <div class="header">
+                                    <div class="header-content">
+                                        <h1>Header</h1>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content-header">
+                                        <h2>Content Header</h2>
+                                        <p>Content description</p>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p>Card content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-nav">
+                                    <div class="home-indicator"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="mobile-container"&gt;
+    &lt;div class="header"&gt;
+        &lt;div class="header-content"&gt;
+            &lt;h1&gt;Header&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="content-header"&gt;
+            &lt;h2&gt;Content Header&lt;/h2&gt;
+            &lt;p&gt;Content description&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;p&gt;Card content&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bottom-nav"&gt;
+        &lt;div class="home-indicator"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn">
+                                <div class="quick-action-icon">👤</div>
+                                <span>Profile</span>
+                            </button>
+                            <button class="quick-action-btn">
+                                <div class="quick-action-icon">📊</div>
+                                <span>Report</span>
+                            </button>
+                            <button class="quick-action-btn">
+                                <div class="quick-action-icon">⚙️</div>
+                                <span>Settings</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="quick-actions"&gt;
+    &lt;button class="quick-action-btn"&gt;
+        &lt;div class="quick-action-icon"&gt;👤&lt;/div&gt;
+        &lt;span&gt;Profile&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="quick-action-btn"&gt;
+        &lt;div class="quick-action-icon"&gt;📊&lt;/div&gt;
+        &lt;span&gt;Report&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="quick-action-btn"&gt;
+        &lt;div class="quick-action-icon"&gt;⚙️&lt;/div&gt;
+        &lt;span&gt;Settings&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+
+                <!-- List Items -->
+                <div class="component-showcase">
+                    <div class="component-preview">
+                        <h3>List Items</h3>
+                        <div class="list-container">
+                            <div class="list-item">
+                                <div class="list-icon">🏦</div>
+                                <div class="list-content">
+                                    <h4>Bank BNI</h4>
+                                    <p>Rekening utama untuk program bantuan</p>
+                                </div>
+                                <div class="list-action">
+                                    <button class="btn btn-outline">Pilih</button>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-icon">💳</div>
+                                <div class="list-content">
+                                    <h4>Bank Mandiri</h4>
+                                    <p>Rekening sekunder</p>
+                                </div>
+                                <div class="list-action">
+                                    <button class="btn btn-outline">Pilih</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-code">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>&lt;div class="list-container"&gt;
+    &lt;div class="list-item"&gt;
+        &lt;div class="list-icon"&gt;🏦&lt;/div&gt;
+        &lt;div class="list-content"&gt;
+            &lt;h4&gt;Bank BNI&lt;/h4&gt;
+            &lt;p&gt;Rekening utama untuk program bantuan&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="list-action"&gt;
+            &lt;button class="btn btn-outline"&gt;Pilih&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="list-item"&gt;
+        &lt;div class="list-icon"&gt;💳&lt;/div&gt;
+        &lt;div class="list-content"&gt;
+            &lt;h4&gt;Bank Mandiri&lt;/h4&gt;
+            &lt;p&gt;Rekening sekunder&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="list-action"&gt;
+            &lt;button class="btn btn-outline"&gt;Pilih&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </section>
+
+
             <!-- Footer -->
             <section class="section">
                 <h2><i class="fas fa-info-circle"></i> About This Style Guide</h2>
                 <p>This comprehensive style guide showcases all components available in the Perlinsos CSS framework. The design system is built around the Indonesian Independence Day theme using red, gold, and white colors.</p>
-                <p><strong>Key Features:</strong></p>
+                <p><strong>Updated Features:</strong></p>
                 <ul>
                     <li>Mobile-first responsive design</li>
                     <li>Indonesian Independence Day color scheme</li>
-                    <li>Comprehensive component library</li>
+                    <li>Comprehensive component library (60+ components)</li>
                     <li>KTP scanning specific components</li>
                     <li>Form validation and biometric elements</li>
+                    <li>Navigation and layout patterns</li>
+                    <li>Transaction and banking components</li>
+                    <li>Chat and help system components</li>
+                    <li>Status indicators and processing states</li>
+                    <li>Empty states and error handling</li>
+                    <li>Consent and agreement components</li>
                     <li>Consistent animation and interaction patterns</li>
                 </ul>
-                <p><strong>Usage:</strong> Include <code>perlinsos-styles.css</code> in your HTML and use the classes as demonstrated above.</p>
+                <p><strong>Usage:</strong> Include <code>perlinsos-styles.css</code> in your HTML and use the classes as demonstrated above. All components are based on real patterns found across the application's 60+ HTML pages.</p>
+                <p><strong>Component Coverage:</strong> This guide now references all major patterns found in the pages folder, including portal dashboards, agent interfaces, biometric verification, KTP scanning, program management, transaction history, help systems, and more.</p>
             </section>
         </div>
     </div>
