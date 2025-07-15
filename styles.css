@@ -280,14 +280,14 @@ body {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    background: rgba(217, 119, 6, 0.2);
-    color: var(--gold-accent);
+    background: #fef3c7; /* warna kuning muda */
+    color: #92400e; /* coklat emas tua */
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--radius-2xl);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
-    border: 1px solid rgba(217, 119, 6, 0.3);
+    border: 1px solid #fcd34d; /* kuning terang */
 }
 
 .hero h1 {
