@@ -81,7 +81,7 @@
                             Informasi Pribadi
                         </h4>
                         
-                        <div class="ktp-data-grid">
+                        <div class="ktp-data-grid single-column">
                             <div class="ktp-data-item">
                                 <label>NIK</label>
                                 <input type="text" class="ktp-data-input" id="nik" value="3275051234567890" maxlength="16">
@@ -121,7 +121,7 @@
                         <div class="ktp-data-grid">
                             <div class="ktp-data-item ktp-full-width">
                                 <label>Alamat</label>
-                                <input type="text" class="ktp-data-input" id="address" value="JL. MERDEKA RAYA NO. 123 RT 001/002">
+                                <textarea class="ktp-data-textarea" id="address" rows="3">JL. MERDEKA RAYA NO. 123 RT 001/002</textarea>
                                 <div class="ktp-confidence-badge ktp-medium">95.2%</div>
                             </div>
                             
@@ -314,7 +314,7 @@
             });
 
             // Setup input change listeners to track edits
-            const inputs = document.querySelectorAll('.ktp-data-input');
+            const inputs = document.querySelectorAll('.ktp-data-input, .ktp-data-textarea');
             inputs.forEach(input => {
                 input.addEventListener('input', function() {
                     this.style.borderColor = 'var(--gold-accent)';
