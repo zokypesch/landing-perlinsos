@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Biometrik Agent - Portal Perlinsos</title>
+    <link rel="stylesheet" href="perlinsos-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Content -->
+        <div class="content" style="padding-top: var(--spacing-xl);">
+            <!-- Back Navigation -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <button onclick="history.back()" class="back-btn" style="display: flex; align-items: center; gap: var(--spacing-sm); background: none; border: none; color: var(--text-secondary); font-size: 14px; cursor: pointer;">
+                    <i class="fas fa-arrow-left"></i>
+                    Kembali
+                </button>
+            </div>
+
+            <!-- Header Section -->
+            <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                <div style="width: 80px; height: 80px; margin: 0 auto var(--spacing-xl); background: linear-gradient(135deg, var(--green-success) 0%, #065F46 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--white-primary); box-shadow: var(--shadow-lg);">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h1 style="font-size: 24px; font-weight: 700; color: var(--gray-900); margin-bottom: var(--spacing-sm);">Verifikasi Identitas Agent</h1>
+                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">Untuk keamanan, sistem memerlukan verifikasi biometrik untuk memastikan identitas Anda sebelum mengakses dashboard agent</p>
+            </div>
+
+            <!-- Verification Steps -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-header" style="background: var(--blue-light); color: var(--blue-primary);">
+                    <h3 style="font-size: 16px; margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-list-check"></i>
+                        Tahapan Verifikasi
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <div class="checklist">
+                        <div class="checklist-item" id="step1">
+                            <div class="check-icon" id="check1" style="background: var(--gray-300);">
+                                <i class="fas fa-circle" style="font-size: 8px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Deteksi Wajah</strong><br>
+                                <span style="color: var(--text-secondary); font-size: 13px;">Pastikan wajah Anda terlihat jelas di kamera</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item" id="step2">
+                            <div class="check-icon" id="check2" style="background: var(--gray-300);">
+                                <i class="fas fa-circle" style="font-size: 8px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Tes Liveness</strong><br>
+                                <span style="color: var(--text-secondary); font-size: 13px;">Ikuti instruksi gerakan untuk memastikan kehadiran fisik</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item" id="step3">
+                            <div class="check-icon" id="check3" style="background: var(--gray-300);">
+                                <i class="fas fa-circle" style="font-size: 8px;"></i>
+                            </div>
+                            <div class="checklist-text">
+                                <strong>Pencocokan Wajah</strong><br>
+                                <span style="color: var(--text-secondary); font-size: 13px;">Sistem akan mencocokkan dengan foto profil agent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camera Section -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div class="card-content" style="text-align: center;">
+                    <div id="cameraContainer" style="position: relative; max-width: 280px; margin: 0 auto var(--spacing-xl);">
+                        <!-- Camera Preview -->
+                        <div id="cameraFrame" style="width: 280px; height: 350px; border: 3px solid var(--gray-300); border-radius: var(--radius-xl); background: var(--gray-100); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                            <div id="cameraPlaceholder" style="text-align: center; color: var(--text-secondary);">
+                                <i class="fas fa-camera" style="font-size: 48px; margin-bottom: var(--spacing-lg); color: var(--gray-400);"></i>
+                                <p style="font-size: 14px; margin: 0;">Kamera akan aktif setelah Anda menekan tombol mulai</p>
+                            </div>
+                            
+                            <!-- Face Detection Overlay -->
+                            <div id="faceOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 260px; border: 3px dashed var(--green-success); border-radius: var(--radius-xl); display: none;">
+                                <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--green-success); color: white; padding: 4px 12px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">
+                                    Posisikan wajah di dalam area
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Status Indicator -->
+                        <div id="statusIndicator" style="margin-top: var(--spacing-lg);">
+                            <div id="statusText" style="font-size: 14px; color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                                Siap untuk memulai verifikasi
+                            </div>
+                            <div id="progressBar" style="width: 100%; height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; display: none;">
+                                <div id="progressFill" style="height: 100%; background: linear-gradient(90deg, var(--green-success), var(--blue-primary)); width: 0%; transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div id="actionButtons" style="margin-top: var(--spacing-xl);">
+                        <button id="startVerification" class="btn btn-success btn-full" style="margin-bottom: var(--spacing-lg);">
+                            <i class="fas fa-play"></i>
+                            Mulai Verifikasi Biometrik
+                        </button>
+                        
+                        <button id="retryVerification" class="btn btn-outline btn-full" style="display: none; margin-bottom: var(--spacing-lg);">
+                            <i class="fas fa-redo"></i>
+                            Ulangi Verifikasi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="alert alert-info">
+                <div class="alert-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Tips Verifikasi Berhasil</h4>
+                    <ul style="margin: 8px 0 0 16px; font-size: 13px; line-height: 1.5;">
+                        <li>Pastikan pencahayaan cukup terang</li>
+                        <li>Posisikan wajah tepat di tengah kamera</li>
+                        <li>Jangan menggunakan kacamata atau masker</li>
+                        <li>Ikuti instruksi gerakan dengan tenang</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="alert alert-warning">
+                <div class="alert-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Keamanan & Privasi</h4>
+                    <p>Data biometrik Anda dienkripsi dan hanya digunakan untuk verifikasi identitas. Tidak ada data yang disimpan secara permanen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-content" style="text-align: center; padding: var(--spacing-2xl);">
+                <div id="processingAnimation" style="width: 64px; height: 64px; margin: 0 auto var(--spacing-xl); border: 4px solid var(--green-light); border-top: 4px solid var(--green-success); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <h3 id="processingTitle">Memproses Verifikasi</h3>
+                <p id="processingText" style="color: var(--text-secondary); margin: 0;">Mohon tunggu, sistem sedang memverifikasi identitas Anda...</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .face-detected {
+            border-color: var(--green-success) !important;
+            box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        .liveness-active {
+            border-color: var(--blue-primary) !important;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        #cameraFrame.recording {
+            border-color: var(--red-primary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+        }
+    </style>
+
+    <script>
+        let currentStep = 0;
+        let verificationSteps = ['face-detection', 'liveness-test', 'face-matching'];
+        let verificationInProgress = false;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStepStatus();
+        });
+
+        // Start verification process
+        document.getElementById('startVerification').addEventListener('click', function() {
+            if (verificationInProgress) return;
+            
+            verificationInProgress = true;
+            this.style.display = 'none';
+            document.getElementById('retryVerification').style.display = 'none';
+            
+            startCameraSimulation();
+        });
+
+        // Retry verification
+        document.getElementById('retryVerification').addEventListener('click', function() {
+            resetVerification();
+            document.getElementById('startVerification').click();
+        });
+
+        function startCameraSimulation() {
+            const cameraFrame = document.getElementById('cameraFrame');
+            const placeholder = document.getElementById('cameraPlaceholder');
+            const overlay = document.getElementById('faceOverlay');
+            const statusText = document.getElementById('statusText');
+            const progressBar = document.getElementById('progressBar');
+            
+            // Simulate camera activation
+            placeholder.innerHTML = '<div style="color: var(--green-success);"><i class="fas fa-video" style="font-size: 48px; margin-bottom: var(--spacing-lg);"></i><p style="font-size: 14px; margin: 0;">Kamera Aktif</p></div>';
+            
+            setTimeout(() => {
+                overlay.style.display = 'block';
+                progressBar.style.display = 'block';
+                runVerificationSteps();
+            }, 1000);
+        }
+
+        function runVerificationSteps() {
+            const steps = [
+                { name: 'Mendeteksi wajah...', duration: 3000, success: Math.random() > 0.2 },
+                { name: 'Melakukan tes liveness...', duration: 4000, success: Math.random() > 0.3 },
+                { name: 'Mencocokkan dengan database...', duration: 3000, success: Math.random() > 0.2 }
+            ];
+            
+            let stepIndex = 0;
+            
+            function runStep() {
+                if (stepIndex >= steps.length) {
+                    completeVerification();
+                    return;
+                }
+                
+                const step = steps[stepIndex];
+                updateStatus(step.name);
+                updateProgress((stepIndex + 1) / steps.length * 100);
+                updateStepStatus(stepIndex, 'processing');
+                
+                // Add visual effects
+                const cameraFrame = document.getElementById('cameraFrame');
+                if (stepIndex === 0) {
+                    cameraFrame.classList.add('face-detected');
+                } else if (stepIndex === 1) {
+                    cameraFrame.classList.add('liveness-active');
+                }
+                
+                setTimeout(() => {
+                    if (step.success) {
+                        updateStepStatus(stepIndex, 'success');
+                        stepIndex++;
+                        setTimeout(runStep, 500);
+                    } else {
+                        // Simulate failure
+                        failVerification();
+                        return;
+                    }
+                }, step.duration);
+            }
+            
+            runStep();
+        }
+
+        function updateStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+
+        function updateProgress(percentage) {
+            document.getElementById('progressFill').style.width = percentage + '%';
+        }
+
+        function updateStepStatus(stepIndex = -1, status = 'pending') {
+            const steps = document.querySelectorAll('.checklist-item');
+            const checks = document.querySelectorAll('[id^="check"]');
+            
+            if (stepIndex >= 0) {
+                const checkIcon = checks[stepIndex];
+                const stepElement = steps[stepIndex];
+                
+                if (status === 'processing') {
+                    checkIcon.style.background = 'var(--blue-primary)';
+                    checkIcon.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 12px;"></i>';
+                    stepElement.style.background = 'var(--blue-light)';
+                } else if (status === 'success') {
+                    checkIcon.style.background = 'var(--green-success)';
+                    checkIcon.innerHTML = '<i class="fas fa-check" style="font-size: 12px;"></i>';
+                    stepElement.style.background = 'var(--green-light)';
+                }
+            }
+        }
+
+        function completeVerification() {
+            document.getElementById('processingModal').style.display = 'flex';
+            
+            setTimeout(() => {
+                // Simulate final processing
+                const processingTitle = document.getElementById('processingTitle');
+                const processingText = document.getElementById('processingText');
+                
+                processingTitle.textContent = 'Verifikasi Berhasil!';
+                processingText.textContent = 'Identitas Anda telah terverifikasi. Mengarahkan ke dashboard...';
+                
+                setTimeout(() => {
+                    window.location.href = 'agent-biometric-success.html';
+                }, 2000);
+            }, 2000);
+        }
+
+        function failVerification() {
+            document.getElementById('processingModal').style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = 'agent-biometric-failed.html';
+            }, 2000);
+        }
+
+        function resetVerification() {
+            currentStep = 0;
+            verificationInProgress = false;
+            
+            // Reset UI
+            document.getElementById('cameraFrame').classList.remove('face-detected', 'liveness-active', 'recording');
+            document.getElementById('faceOverlay').style.display = 'none';
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('cameraPlaceholder').innerHTML = '<i class="fas fa-camera" style="font-size: 48px; margin-bottom: var(--spacing-lg); color: var(--gray-400);"></i><p style="font-size: 14px; margin: 0;">Kamera akan aktif setelah Anda menekan tombol mulai</p>';
+            
+            // Reset steps
+            const steps = document.querySelectorAll('.checklist-item');
+            const checks = document.querySelectorAll('[id^="check"]');
+            
+            steps.forEach(step => step.style.background = 'var(--surface)');
+            checks.forEach(check => {
+                check.style.background = 'var(--gray-300)';
+                check.innerHTML = '<i class="fas fa-circle" style="font-size: 8px;"></i>';
+            });
+            
+            updateStatus('Siap untuk memulai verifikasi');
+            updateProgress(0);
+            
+            document.getElementById('startVerification').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
