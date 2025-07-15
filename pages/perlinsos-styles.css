@@ -737,3 +737,471 @@ body {
         border-right: 1px solid var(--border);
     }
 }
+
+/* KTP Scanning Specific Styles */
+.ktp-scan-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.ktp-scan-header-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--red-primary) 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--white-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.ktp-scan-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.ktp-scan-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.scan-mode-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background: var(--white-primary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.scan-mode-btn:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.scan-mode-btn.active {
+    border-color: var(--blue-primary);
+    background: var(--blue-light);
+    color: var(--blue-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.ktp-corner-indicator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--blue-primary);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(30, 64, 175, 0.3);
+}
+
+.ktp-corner-indicator.top-left {
+    top: -3px;
+    left: -3px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.ktp-corner-indicator.top-right {
+    top: -3px;
+    right: -3px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.ktp-corner-indicator.bottom-left {
+    bottom: -3px;
+    left: -3px;
+    border-right: none;
+    border-top: none;
+}
+
+.ktp-corner-indicator.bottom-right {
+    bottom: -3px;
+    right: -3px;
+    border-left: none;
+    border-top: none;
+}
+
+.ktp-quality-bar {
+    width: 4px;
+    height: 20px;
+    background: var(--gray-300);
+    margin: 0 1px;
+    border-radius: 2px;
+    transition: var(--transition-fast);
+}
+
+.ktp-quality-bar.active {
+    background: var(--green-success);
+}
+
+.ktp-quality-bar.medium {
+    background: var(--gold-accent);
+}
+
+.ktp-quality-bar.low {
+    background: #EF4444;
+}
+
+.ktp-quality-bars {
+    display: flex;
+    align-items: flex-end;
+}
+
+.ktp-upload-area {
+    border: 2px dashed var(--gray-300);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.ktp-upload-area:hover {
+    border-color: var(--blue-primary);
+    background: var(--blue-light);
+}
+
+.ktp-processing-step {
+    font-size: 14px;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.ktp-camera-frame {
+    width: 320px;
+    height: 200px;
+    border: 2px solid var(--blue-primary);
+    border-radius: var(--radius-lg);
+    background: var(--gray-50);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    aspect-ratio: 1.6/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    transform: translateX(0);
+}
+
+.ktp-camera-frame.ktp-detected {
+    border-color: var(--green-success);
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+}
+
+.ktp-camera-frame.ktp-capturing {
+    border-color: var(--gold-accent);
+    animation: ktp-pulse 1s ease-in-out infinite;
+}
+
+.ktp-camera-container {
+    position: relative;
+    width: 120%;
+    /* max-width: 320px;
+    margin: 0 auto var(--spacing-xl); */
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+.ktp-camera-placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.ktp-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 177px;
+    border: 3px dashed var(--blue-primary);
+    border-radius: var(--radius-lg);
+    display: none;
+    aspect-ratio: 1.58/1;
+}
+
+.ktp-detection-status {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    text-align: center;
+}
+
+/* Camera section specific card content */
+#cameraSection .card-content {
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+}
+
+/* Ensure camera section is perfectly centered */
+#cameraSection {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ktp-status-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.ktp-detection-indicator {
+    display: none;
+}
+
+@keyframes ktp-pulse {
+    0%, 100% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.7; 
+    }
+}
+
+/* Additional utility classes for KTP scanning */
+.ktp-processing-step {
+    font-size: 14px;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+/* KTP Scan Failed Page Styles */
+@keyframes ktp-error-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.ktp-quality-bar-container {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.ktp-quality-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.ktp-issue-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.ktp-issue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--gray-300);
+}
+
+.ktp-issue-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--white-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* KTP Scan Success Page Styles */
+@keyframes ktp-success-pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: var(--shadow-xl);
+    }
+    50% { 
+        transform: scale(1.05); 
+        box-shadow: 0 20px 40px -10px rgba(5, 150, 105, 0.4);
+    }
+}
+
+@keyframes ktp-fill-progress {
+    from { width: 0%; }
+    to { width: 98.5%; }
+}
+
+.ktp-data-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.ktp-data-section:last-child {
+    margin-bottom: 0;
+}
+
+.ktp-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.ktp-data-item {
+    position: relative;
+}
+
+.ktp-data-item.ktp-full-width {
+    grid-column: 1 / -1;
+}
+
+.ktp-data-item label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ktp-data-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    background: var(--gray-50);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+    border-left: 3px solid var(--blue-primary);
+}
+
+.ktp-data-input {
+    width: 100%;
+    font-size: 14px;
+    color: var(--gray-900);
+    background: var(--white-primary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--blue-primary);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+    transition: var(--transition-fast);
+    border-left: 3px solid var(--blue-primary);
+}
+
+.ktp-data-input:focus {
+    outline: none;
+    border-color: var(--red-primary);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    background: var(--white-primary);
+}
+
+.ktp-data-input:hover {
+    border-color: var(--red-primary);
+}
+
+.ktp-confidence-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.ktp-confidence-badge.ktp-high {
+    background: var(--green-light);
+    color: var(--green-success);
+}
+
+.ktp-confidence-badge.ktp-medium {
+    background: var(--gold-light);
+    color: var(--gold-accent);
+}
+
+.ktp-confidence-badge.ktp-low {
+    background: #FEF2F2;
+    color: #DC2626;
+}
+
+@media (max-width: 374px) {
+    .ktp-data-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .ktp-camera-frame {
+        width: 280px;
+        height: 175px;
+        margin: 0 auto;
+    }
+    
+    .ktp-camera-container {
+        max-width: 280px;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .ktp-overlay {
+        width: 240px;
+        height: 152px;
+    }
+    
+    #cameraSection .card-content {
+        padding: var(--spacing-lg);
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .ktp-camera-frame {
+        width: 250px;
+        height: 156px;
+        margin: 0 auto;
+    }
+    
+    .ktp-camera-container {
+        max-width: 250px;
+        padding: 0 var(--spacing-xs);
+    }
+    
+    .ktp-overlay {
+        width: 210px;
+        height: 133px;
+    }
+    
+    #cameraSection .card-content {
+        padding: var(--spacing-md);
+        margin: 0;
+        width: 100%;
+    }
+}
